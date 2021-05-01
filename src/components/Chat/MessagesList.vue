@@ -41,11 +41,10 @@ const messages = computed(() => {
 <style scoped>
 .wrapper {
   width: 100%;
-  height: 100%;
-  background-color: green;
 }
 .el-container-messages-list {
   width: 100%;
   height: inherit;
+  overflow: scroll;
 }
 </style>

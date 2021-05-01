@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper">
-    {{created}} : {{sender}} : {{text}}
+    <div class="message">
+      {{created}} : {{sender}} : {{text}}
+    </div>
+    
     <!-- qwewqewqewqe {{created}} -->
   </div>
 </template>
@@ -17,6 +20,11 @@ defineProps({
 
 <style scoped>
   .wrapper {
+    /* width: 100px; */
     background-color: rgb(0, 183, 255)
+  }
+  .message {
+    /* width: 50vw; */
+    height: 5vh;
   }
 </style>
