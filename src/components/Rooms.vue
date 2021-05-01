@@ -4,13 +4,13 @@
       Rooms
     </div>
     <div class="list-container">
-      Rooms List
+      <ListRooms />
     </div>
   </div>
 </template>
 
 <script setup>
-
+import ListRooms from './Rooms/ListRooms.vue';
 </script>
 
 <style scoped>

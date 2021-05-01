@@ -1,11 +1,34 @@
 <template>
-  
+  <div class="wrapper" v-if="isRoomsLoaded">
+    <el-menu default-active="null" class="el-menu-vertical-demo" :collapse="false">
+      <el-menu-item v-for="(room, index) in list" :index="index">
+        <i class="el-icon-message"></i>
+        <template #title>{{room.name}}</template>
+      </el-menu-item>
+    </el-menu>
+  </div>
 </template>
 
 <script setup>
+import {computed} from 'vue';
+import {useStore} from 'vuex';
 
+const store = useStore();
+const isRoomsLoaded = computed(()=>{
+  return list != null;
+});
+const list = computed(() => {
+  return store.state.rooms.list ? store.state.rooms.list : null;
+});
 </script>
 
 <style scoped>
-
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+.el-menu-vertical-demo {
+  width: 100%;
+  height: inherit;
+}
 </style>
