@@ -4,7 +4,7 @@ const state = {
   settings: null,
   connected: false,
   error: null,
-  username: null
+  username: null,
 };
 
 const getters = {

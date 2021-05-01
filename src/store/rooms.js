@@ -1,8 +1,8 @@
 import api from '../api';
 
 const state = {
-  list: [],
-  history: [],
+  list: null,
+  history: null,
   current: null,
 };
 

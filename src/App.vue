@@ -1,21 +1,39 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
-  <div class="wrapper">
-    <!-- <Header class="box1" /> -->
-    <Rooms class="rooms" />
-    <Chat class="chat" />
-  </div>
+  <el-container
+    v-loading="!loaded">
+    <div class="wrapper">
+      <!-- <Header class="box1" /> -->
+      <Rooms class="rooms" />
+      <Chat class="chat" />
+    </div>
+  </el-container>
 </template>
 
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue';
+import HelloWorld from './components/HelloWorld.vue';
 import Header from './components/Header.vue';
 import Chat from './components/Chat.vue';
 import Rooms from './components/Rooms.vue';
 
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+import {onMounted, computed} from 'vue';
+import {useStore} from 'vuex';
+
+const store = useStore();
+
+onMounted(async ()=>{
+  // setTimeout(()=>{
+  //   store.dispatch('session/getSettings');
+  //   store.dispatch('rooms/getRoomsList');
+  // }, 2000);
+  await store.dispatch('session/getSettings');
+  await store.dispatch('rooms/getRoomsList');
+});
+
+const loaded = computed(() => {
+  return store.state.session.settings != null && store.state.rooms.list != null;
+});
 </script>
 
 <style>
@@ -57,13 +75,20 @@ import Rooms from './components/Rooms.vue';
 // роутинги
 
 // Старт:
-// - Получить насройки сервера
-// - Получить список комнат
+// - Показать лоадер
+// -- Получить насройки сервера
+// -- Получить список комнат
+// - Скрыть лоадер
 // - Ввести имя пользователя
-// - Установить подключение WS
+// - Показать лоадер
+// -- Установить подключение WS
+// - Скрыть лоадер
 // 
 // Вход в комнату:
+// - Скрыть лоадер
 // - Выбрать комнату
 // - Войти в комнату
-// - Получить историю сообщений комнаты
+// - Показать лоадер
+// -- Получить историю сообщений комнаты
+// - Скрыть лоадер
 // - Написать сообщение
