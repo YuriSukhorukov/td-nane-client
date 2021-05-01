@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" v-if="isRoomsLoaded">
-    <el-menu default-active="null" class="el-menu-vertical-demo" :collapse="false">
+    <el-menu default-active="null" @select="handleSelect" class="el-menu-vertical-demo" :collapse="false">
       <el-menu-item v-for="(room, index) in list" :index="index">
         <i class="el-icon-message"></i>
         <template #title>{{room.name}}</template>
@@ -14,9 +14,15 @@ import {computed} from 'vue';
 import {useStore} from 'vuex';
 
 const store = useStore();
+
+const handleSelect = async (index, indexPath) => {
+  await store.dispatch('rooms/getMessageHistory', store.state.rooms.list[index].name);
+};
+
 const isRoomsLoaded = computed(()=>{
   return list != null;
 });
+
 const list = computed(() => {
   return store.state.rooms.list ? store.state.rooms.list : null;
 });

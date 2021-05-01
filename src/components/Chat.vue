@@ -4,13 +4,14 @@
       Room
     </div>
     <div class="list-container">
-      Messages
+      <MessagesList />
     </div>
   </div>
 </template>
 
 <script setup>
-  import Header from './Header.vue';
+  // import Header from './Header.vue';
+  import MessagesList from './Chat/MessagesList.vue';
   import {useStore} from 'vuex';
   const store = useStore();
 </script>
@@ -24,7 +25,7 @@
     height: 5%;
   }
   .list-container {
-    background-color: rgb(255, 253, 162);
+    background-color: rgb(46, 45, 15);
     height: 95%;
   }
 </style>

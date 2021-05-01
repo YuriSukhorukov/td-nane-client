@@ -4,6 +4,7 @@ const state = {
   list: null,
   history: null,
   current: null,
+  isHistoryLoading: false
 };
 
 const getters = {};
@@ -23,6 +24,14 @@ const mutations = {
 
   setCurrentRoom(state, room) {
     state.current = room;
+  },
+
+  clearHystory(state) {
+    state.history = null;
+  },
+
+  setHistoryLoading(state, isLoading) {
+    state.isHistoryLoading = isLoading;
   }
 };
 
@@ -38,8 +47,16 @@ const actions = {
 
   async getMessageHistory(state, name) {
     try {
+      state.commit('clearHystory');
+      state.commit('setHistoryLoading', true);
+      // setTimeout(async () => {
+      //   const resp = await api.rest.rooms.getMessageHistory(name);
+      //   state.commit('setMessageHistory', resp);
+      //   state.commit('setHistoryLoading', false);
+      // }, 2000);
       const resp = await api.rest.rooms.getMessageHistory(name);
       state.commit('setMessageHistory', resp);
+      state.commit('setHistoryLoading', false);
     } catch (err) {
       console.log(err);
     }
