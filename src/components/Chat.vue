@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper">
-    Chat component
+    <div class="title">
+      Room
+    </div>
+    <div class="list-container">
+      Messages
+    </div>
   </div>
 </template>
 
@@ -12,8 +17,14 @@
 
 <style scoped>
   .wrapper {
-    /* width: 100vw; */
-    /* height: 100vh; */
-    background-color: red;
+    background-color: yellow;
+  }
+  .title {
+    background-color: rgb(255, 241, 112);
+    height: 5%;
+  }
+  .list-container {
+    background-color: rgb(255, 253, 162);
+    height: 95%;
   }
 </style>
