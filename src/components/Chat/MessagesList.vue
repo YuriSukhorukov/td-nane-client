@@ -9,7 +9,7 @@
 
         <div v-if="!isHistoryEmpty">
           <!-- <div v-for="message in messages"> -->
-            <Message v-for="message in messages" created="message.created" sender="message.sender" text="message.text" />
+            <Message v-for="message in messages" :created="message.created" :sender="message.sender.username" :text="message.text" />
             <!-- {{message.created}} : {{message.sender}} : {{message.text}} -->
           <!-- </div> -->
         </div>
