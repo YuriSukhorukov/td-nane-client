@@ -1,17 +1,9 @@
 <template>
   <div class="wrapper">
     <el-container v-loading="isHistoryLoading" class="el-container-messages-list">
-      <!-- Messages -->
       <div v-if="!isHistoryEmpty">
-        <!-- <Message v-for="message in messages" created="dssdsd" sender="sdsds" text="sdsds" /> -->
-        <!-- <div class="el-icon-chat-round"></div> -->
-        
-
-        <div v-if="!isHistoryEmpty">
-          <!-- <div v-for="message in messages"> -->
-            <Message v-for="message in messages" :created="message.created" :sender="message.sender.username" :text="message.text" />
-            <!-- {{message.created}} : {{message.sender}} : {{message.text}} -->
-          <!-- </div> -->
+        <div v-for="message in messages">
+          <Message :created="message.created" :sender="message.sender.username" :text="message.text" />
         </div>
       </div>
     </el-container>
@@ -32,7 +24,6 @@ const isHistoryLoading = computed(() => {
   return store.state.rooms.isHistoryLoading;
 });
 const messages = computed(() => {
-  // console.log(store.state.rooms.history ? store.state.rooms.history[0].text : undefined);
   return store.state.rooms.history ? store.state.rooms.history : null;
 });
 
