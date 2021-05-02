@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="title">
-      Rooms
+      Username
     </div>
     <div class="list-container">
       <ListRooms />
