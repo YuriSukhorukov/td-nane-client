@@ -2,8 +2,13 @@
   <div class="wrapper" v-if="isRoomsLoaded">
     <el-menu default-active="null" @select="handleSelect" class="el-menu-vertical-demo" :collapse="false">
       <el-menu-item v-for="(room, index) in list" :index="index">
-        <i class="el-icon-message"></i>
-        <template #title>{{room.name}}</template>
+        <template #title>
+          <i class="el-icon-message"></i>
+          <span>{{room.name}}</span>
+          <div style="float: right">
+            <i class="el-icon-message-solid" />
+          </div>
+        </template>
       </el-menu-item>
     </el-menu>
   </div>
@@ -40,5 +45,16 @@ const list = computed(() => {
 :deep() .el-menu {
   height: 4vh !important;
   border-right: none;
+}
+
+.count-new-messages {
+  color: #409EFF; 
+  float: right;
+  right: 0;
+}
+
+.el-icon-message-solid {
+  color: inherit;
+  color: #909399;
 }
 </style>

@@ -5,7 +5,7 @@ const state = {
   history: null,
   current: null,
   isHistoryLoading: false,
-  newMessageInRoom: null,
+  countNewMessagesInRooms: null,
 };
 
 const getters = {};

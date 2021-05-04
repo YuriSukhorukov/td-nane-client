@@ -22,10 +22,10 @@ export default defineComponent ({
 
 <style scoped>
   .wrapper {
-    border: 1px solid #000000;
+    /* border: 1px solid #000000;
     border-radius: 4px;
     border-style: solid;
-    border-width: 1px;
+    border-width: 1px; */
   }
 
   .input-message {

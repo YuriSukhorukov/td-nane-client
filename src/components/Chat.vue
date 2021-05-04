@@ -30,13 +30,11 @@
     background-color: #FFF;
     box-sizing: border-box;
     border-bottom: inset 1px #e6e6e6;
-    /* border-bottom: solid 1px #e6e6e6; */
   }
   .list-container {
     background-color: rgb(46, 45, 15);
     width: 79%;
     height: 90vh;
-    /* margin-left: 1%; */
     position: fixed;
   }
   .input-container {
