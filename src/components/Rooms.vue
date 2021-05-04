@@ -2,6 +2,7 @@
   <div class="wrapper">
     <div class="user-container">
       <el-button icon="el-icon-user" class="button-auth"/>
+      Log In
     </div>
     <div class="list-container">
       <ListRooms />
