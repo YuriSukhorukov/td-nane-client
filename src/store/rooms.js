@@ -4,7 +4,8 @@ const state = {
   list: null,
   history: null,
   current: null,
-  isHistoryLoading: false
+  isHistoryLoading: false,
+  newMessageInRoom: null,
 };
 
 const getters = {};

@@ -13,7 +13,6 @@
 </template>
 
 <script setup>
-  // import Header from './Header.vue';
   import MessagesList from './Chat/MessagesList.vue';
   import InputMessage from './Chat/InputMessage.vue';
   import {useStore} from 'vuex';
@@ -30,10 +29,17 @@
   }
   .list-container {
     background-color: rgb(46, 45, 15);
-    height: 85%;
+    width: 79%;
+    height: 90vh;
+    margin-left: 1%;
+    position: fixed;
   }
   .input-container {
     background-color: rgb(156, 120, 153);
-    height: 10%;
+    width: 78%;
+    height: 4vh;
+    margin: 1%;
+    position: fixed;
+    bottom: 0;
   }
 </style>

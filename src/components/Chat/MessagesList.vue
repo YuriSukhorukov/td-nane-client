@@ -36,6 +36,6 @@ const messages = computed(() => {
 .el-container-messages-list {
   width: 100%;
   height: inherit;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 </style>
