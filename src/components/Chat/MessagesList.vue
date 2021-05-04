@@ -37,5 +37,7 @@ const messages = computed(() => {
   width: 100%;
   height: inherit;
   overflow-y: scroll;
+
+  margin-left: 1%;
 }
 </style>

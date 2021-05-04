@@ -55,6 +55,8 @@ const loaded = computed(() => {
     float: left;
     width: 20%;
     height: 100vh;
+    box-sizing: border-box;
+    border-right: inset 1px #e6e6e6;
   }
 
   .chat {

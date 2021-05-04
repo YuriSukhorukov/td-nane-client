@@ -33,23 +33,21 @@ defineProps({
 
 <style scoped>
   .wrapper {
-    background-color: rgb(0, 183, 255);
-    border: 1px solid #ebeef5;
-    /* border: 2px solid #dedede; */
-    /* background-color: #f1f1f1; */
+    /* background-color: rgb(0, 183, 255); */
+    /* border: 1px solid #ebeef5; */
     background-color: white;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     padding: 10px;
-    margin: 10px 0;
+    margin: 20px 0;
     width: 500px;
 
-    /* font-size: 15px; */
+    /* border-top: 1px solid #ebeef5; */
+    /* border-bottom: 1px solid #ebeef5; */
   }
   .header {
     clear: both;
     display: flex;
-    border-bottom: 1px solid #ebeef5;
-    /* justify-content: space-between; */
+    /* border-bottom: 1px solid #ebeef5; */
   }
   .space-left {
     margin-left: 1em;

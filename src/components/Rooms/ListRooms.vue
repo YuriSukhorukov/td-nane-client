@@ -37,4 +37,8 @@ const list = computed(() => {
   width: 100%;
   height: inherit;
 }
+:deep() .el-menu {
+  height: 4vh !important;
+  border-right: none;
+}
 </style>
