@@ -1,8 +1,9 @@
 <template>
   <div class="wrapper">
     <div class="user-container">
-      <el-button icon="el-icon-user" class="button-auth"/>
+      <el-button @click="openAuth" icon="el-icon-user" class="button-auth"/>
       <span class="user-name">Log In</span>
+      <Auth :drawer="drawer" @auth="onAuth" @close="onClose" />
     </div>
     <div class="list-container">
       <ListRooms />
@@ -12,6 +13,23 @@
 
 <script setup>
 import ListRooms from './Rooms/ListRooms.vue';
+import Auth from './Auth.vue';
+import {computed, reactive, ref} from 'vue';
+
+const drawer = ref(false);
+
+const openAuth = () => {
+  drawer.value = true;
+}
+
+const onAuth = () => {
+  console.log('onAuth');
+  drawer.value = false;
+}
+const onClose = () => {
+  console.log('onClose');
+  drawer.value = false;
+}
 </script>
 
 <style scoped>
