@@ -1,5 +1,7 @@
 <template>
-  <el-drawer
+  <el-drawer 
+    :modal="false"
+    size="20%"
     title="Log In"
     v-model="drawer"
     direction="ltr"
@@ -33,5 +35,7 @@
 </script>
 
 <style scoped>
-
+  :deep() .el-drawer.ltr {
+    width: 20% !important;
+  }
 </style>
