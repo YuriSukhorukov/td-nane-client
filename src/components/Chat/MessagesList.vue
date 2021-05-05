@@ -24,7 +24,7 @@ const isHistoryLoading = computed(() => {
   return store.state.rooms.isHistoryLoading;
 });
 const messages = computed(() => {
-  return store.state.rooms.history ? store.state.rooms.history : null;
+  return store.state.rooms.history && store.state.rooms.history[store.state.rooms.current] ? store.state.rooms.history[store.state.rooms.current] : null;
 });
 
 </script>
