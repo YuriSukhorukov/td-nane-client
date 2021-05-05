@@ -17,10 +17,12 @@ const mutations = {
   
   setMessageHistory(state, data) {
     state.history = data;
+    console.log(data);
   },
 
   pushMessageInHistory(state, message) {
-    state.history.push(message);
+    state.history == null ? state.history = [] : state.history.push(message);
+    console.log(message, 'state');
   },
 
   setCurrentRoom(state, room) {
@@ -64,7 +66,9 @@ const actions = {
   },
 
   async receiveStreamMessages(state) {
-    let callback = (data) => {state.commit('pushMessageInHistory', data)};
+    let callback = (data) => {
+      state.commit('pushMessageInHistory', data);
+    };
     api.socket.subscribeMessage(callback);
   },
 };

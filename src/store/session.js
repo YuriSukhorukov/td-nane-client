@@ -35,7 +35,7 @@ const actions = {
   },
   async connect(state, username) {
     // TODO добаить сохранение ошибки в state.error
-    await api.socket.connect({username: state.username});
+    await api.socket.connect({username});
     state.commit('setUsername', username);
     state.commit('setConnected', true);
   },

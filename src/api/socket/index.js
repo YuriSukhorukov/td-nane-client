@@ -29,13 +29,16 @@ export default {
 
   onMessage(event) {
     let data = JSON.parse(event.data);
-    if (data.id != undefined && this.listeners[data.id] != undefined) {
+    if (data.text != undefined) {
+      Object.keys(this.listeners).forEach(key => this.listeners[key](data));
+      console.log(data, 'text');
+    } else if (data.id != undefined && this.listeners[data.id] != undefined) {
       this.listeners[data.id](data);
       delete this.listeners[data.id];
-    } else if (data.text != undefined) {
-      Object.keys(this.listeners).forEach(key => this.listeners[key](data));
+      console.log(data, 'id');
     } else if (data.pong) {
       this.listeners.pong(data);
+      console.log(data, 'other');
     }
   },
 

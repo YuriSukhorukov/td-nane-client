@@ -22,6 +22,7 @@ const store = useStore();
 
 const handleSelect = async (index, indexPath) => {
   await store.dispatch('rooms/getMessageHistory', store.state.rooms.list[index].name);
+  await store.commit('rooms/setCurrentRoom', store.state.rooms.list[index].name);
 };
 
 const isRoomsLoaded = computed(()=>{

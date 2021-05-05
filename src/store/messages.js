@@ -18,7 +18,8 @@ const actions = {
   async sendMessage(state, {room, text}) {
     try {
       await api.socket.sendMessage({room, text});
-      state.commit('setSentMessage', message);
+      console.log(room, text);
+      // state.commit('setSentMessage', text);
     } catch (err) {
       console.error(err);
     }

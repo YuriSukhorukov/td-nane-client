@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="user-container">
       <el-button @click="openAuth" icon="el-icon-user" class="button-auth"/>
-      <span class="user-name">Log In</span>
+      <span class="user-name">{{username || 'Log In'}}</span>
       <Auth :drawer="drawer" @auth="onAuth" @close="onClose" />
     </div>
     <div class="list-container">
@@ -15,6 +15,9 @@
 import ListRooms from './Rooms/ListRooms.vue';
 import Auth from './Auth.vue';
 import {computed, reactive, ref} from 'vue';
+import {useStore} from 'vuex';
+
+const store = useStore();
 
 const drawer = ref(false);
 
@@ -30,6 +33,10 @@ const onClose = () => {
   console.log('onClose');
   drawer.value = false;
 }
+
+const username = computed(() => {
+  return store.state.session?.username;
+});
 </script>
 
 <style scoped>

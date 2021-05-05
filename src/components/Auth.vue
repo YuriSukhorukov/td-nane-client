@@ -14,7 +14,9 @@
 
 <script setup>
   import {defineProps, ref, defineEmit} from 'vue';
-  
+  import {useStore} from 'vuex';
+
+  const store = useStore();
 
   defineProps({
     drawer: Boolean
@@ -29,7 +31,9 @@
 
   const username = ref('');
 
-  const auth = (username) => {
+  const auth = async (username) => {
+    await store.dispatch('session/connect', username);
+    await store.dispatch('rooms/receiveStreamMessages');
     emit('auth');
   }
 </script>
