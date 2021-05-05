@@ -30,9 +30,13 @@
     background-color: #FFF;
     box-sizing: border-box;
     border-bottom: inset 1px #e6e6e6;
+
+    line-height: 70px;
+    padding-left: 14px;
+    font-size: 24px;
   }
   .list-container {
-    background-color: rgb(46, 45, 15);
+    /* background-color: rgb(46, 45, 15); */
     width: 79%;
     height: 90vh;
     position: fixed;

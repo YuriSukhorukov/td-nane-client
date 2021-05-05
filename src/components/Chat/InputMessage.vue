@@ -35,6 +35,7 @@ export default defineComponent ({
 
   :deep() .el-input__inner {
     height: 4vh !important;
+    /* width: 100%; */
   }
 
   .button-send-message {

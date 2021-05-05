@@ -35,11 +35,12 @@ defineProps({
   .wrapper {
     /* background-color: rgb(0, 183, 255); */
     /* border: 1px solid #ebeef5; */
-    background-color: white;
+    /* background-color: red; */
     /* border-radius: 5px; */
     padding: 10px;
-    margin: 20px 0;
-    width: 500px;
+    padding-top: 20px;
+    /* margin-top: 1%; */
+    /* width: 500px; */
 
     /* border-top: 1px solid #ebeef5; */
     /* border-bottom: 1px solid #ebeef5; */

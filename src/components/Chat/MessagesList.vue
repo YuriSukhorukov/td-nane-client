@@ -39,5 +39,6 @@ const messages = computed(() => {
   overflow-y: scroll;
 
   margin-left: 1%;
+  /* margin-top: 1%; */
 }
 </style>
