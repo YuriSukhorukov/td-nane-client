@@ -5,7 +5,7 @@ const state = {
   history: null,
   current: null,
   isHistoryLoading: false,
-  countNewMessagesInRooms: null,
+  newMessagesInRooms: null,
 };
 
 const getters = {};
@@ -44,6 +44,14 @@ const mutations = {
 
   setHistoryLoading(state, isLoading) {
     state.isHistoryLoading = isLoading;
+  },
+
+  setNewMessagesInRooms(state, {room, unread}) {
+    console.log(room, unread, state.current);
+    if (state.newMessagesInRooms == null) {
+      state.newMessagesInRooms = {};
+    }
+    state.newMessagesInRooms[room] = unread;
   }
 };
 
@@ -72,6 +80,9 @@ const actions = {
   async receiveStreamMessages(state) {
     let callback = (data) => {
       state.commit('pushMessageInHistory', data);
+      if (state.state.current != data.room) {
+        state.commit('setNewMessagesInRooms', {room: data.room, unread: true});
+      }
     };
     api.socket.subscribeMessage(callback);
   },

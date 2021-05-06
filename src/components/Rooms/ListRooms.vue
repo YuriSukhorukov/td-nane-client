@@ -6,7 +6,7 @@
           <i class="el-icon-message"></i>
           <span>{{room.name}}</span>
           <div style="float: right">
-            <i class="el-icon-message-solid" />
+            <i v-if="isMessagesInRoomUnreaded(index)" class="el-icon-message-solid" />
           </div>
         </template>
       </el-menu-item>
@@ -23,6 +23,7 @@ const store = useStore();
 const handleSelect = async (index, indexPath) => {
   await store.dispatch('rooms/getMessageHistory', store.state.rooms.list[index].name);
   await store.commit('rooms/setCurrentRoom', store.state.rooms.list[index].name);
+  await store.commit('rooms/setNewMessagesInRooms', {room: store.state.rooms.list[index].name, unread: false});
 };
 
 const isRoomsLoaded = computed(()=>{
@@ -32,6 +33,14 @@ const isRoomsLoaded = computed(()=>{
 const list = computed(() => {
   return store.state.rooms.list ? store.state.rooms.list : null;
 });
+
+const isMessagesInRoomUnreaded = (index) => {
+  if (store.state.rooms.list == undefined || store.state.rooms.newMessagesInRooms == undefined)
+    return false;
+
+  let room = store.state.rooms.list[index].name;
+  return store.state.rooms.newMessagesInRooms[room];
+};
 </script>
 
 <style scoped>
