@@ -60,6 +60,9 @@ const mutations = {
 
   addRoom(state, room) {
     state.list.push({name: room});
+    if (state.history == null) {
+      state.history = {};
+    }
     state.history[room] = [];
   }
 };

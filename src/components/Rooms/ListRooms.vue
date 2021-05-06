@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" v-if="isRoomsLoaded">
-    <el-menu default-active="null" @select="handleSelect" class="el-menu-vertical-demo" :collapse="false">
+    <!-- <el-menu default-active="null" @select="handleSelect" class="el-menu-vertical-demo" :collapse="false">
       <el-menu-item v-for="(room, index) in list" :index="index">
         <template #title>
           <i class="el-icon-message"></i>
@@ -10,17 +10,73 @@
           </div>
         </template>
       </el-menu-item>
+    </el-menu> -->
+
+
+    <el-menu default-active="null" @select="handleSelect" class="el-menu-vertical-demo" :collapse="false">
+      <div style="
+        padding: 25px; 
+        font-size: 14px; 
+        padding: 0px !important; 
+        padding-left: 25px !important;
+        padding-right: 10px !important;
+        line-height: 56px;
+        font-size: 14px;"
+      >
+        <i class="el-icon-menu"></i>
+        <span>Rooms</span>
+        <el-button 
+          @click="enableAddingNewRoom" 
+          style="
+            background-color: none; 
+            border: none; 
+            float: right;" 
+          :class="addingRoomIcon"
+        />
+        <el-button
+          v-if="isAddingNewRoom"
+          @click="disableAddingNewRoom"
+          class="el-icon-close"
+          style="
+            background-color: none; 
+            border: none; 
+            float: right;"
+        >
+        </el-button>
+      </div>
+      <el-menu-item v-if="isAddingNewRoom">
+        <el-input
+          v-model="newRoom"
+          :maxlength="maxMessageLength"
+          show-word-limit 
+          placeholder="Send a message to" 
+          class="input-message"
+        />
+      </el-menu-item>
+      <el-menu-item v-for="(room, index) in list" :index="index">
+        <template #title>
+          <i class="el-icon-message"></i>
+          <span>{{room.name}}</span>
+          <div style="float: right">
+            <i v-if="isMessagesInRoomUnreaded(index)" class="el-icon-message-solid" />
+          </div>
+        </template>
+      </el-menu-item>
+
+      
     </el-menu>
   </div>
 </template>
 
 <script setup>
-import {computed} from 'vue';
+import {computed, ref} from 'vue';
 import {useStore} from 'vuex';
 
 const store = useStore();
 
 const handleSelect = async (index, indexPath) => {
+  if (store.state.rooms.list[index] == undefined)
+    return;
   await store.dispatch('rooms/getMessageHistory', store.state.rooms.list[index].name);
   await store.commit('rooms/setCurrentRoom', store.state.rooms.list[index].name);
   await store.commit('rooms/setNewMessagesInRooms', {room: store.state.rooms.list[index].name, unread: false});
@@ -41,6 +97,31 @@ const isMessagesInRoomUnreaded = (index) => {
   let room = store.state.rooms.list[index].name;
   return store.state.rooms.newMessagesInRooms[room];
 };
+
+const isAddingNewRoom = ref(false);
+const newRoom = ref('');
+
+const enableAddingNewRoom = () => {
+  isAddingNewRoom.value = true;
+
+  if (isAddingNewRoom.value==true) {
+    if (newRoom.value != '' && store.state.rooms.list.find(el => el.name == newRoom.value) == undefined) {
+      store.commit('rooms/addRoom', newRoom.value);
+      disableAddingNewRoom();
+    } else {
+      console.log('room exist', newRoom.value);
+    }
+  }
+}
+
+const disableAddingNewRoom = () => {
+  newRoom.value = '';
+  isAddingNewRoom.value = false;
+}
+
+const addingRoomIcon = computed(() => {
+  return isAddingNewRoom.value == true ? "el-icon-check" : "el-icon-plus";
+});
 </script>
 
 <style scoped>
