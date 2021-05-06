@@ -31,7 +31,7 @@ const isRoomsLoaded = computed(()=>{
 });
 
 const list = computed(() => {
-  return store.state.rooms.list ? store.state.rooms.list : null;
+  return store.state.rooms.list;
 });
 
 const isMessagesInRoomUnreaded = (index) => {

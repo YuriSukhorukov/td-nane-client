@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="title">
-      Room
+      {{room || 'Room'}}
     </div>
     <div class="list-container">
       <MessagesList />
@@ -15,8 +15,13 @@
 <script setup>
   import MessagesList from './Chat/MessagesList.vue';
   import InputMessage from './Chat/InputMessage.vue';
+  import {computed} from 'vue';
   import {useStore} from 'vuex';
   const store = useStore();
+
+  const room = computed(() => {
+    return store.state.rooms.current;
+  });
 </script>
 
 <style scoped>

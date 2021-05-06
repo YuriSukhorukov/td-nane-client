@@ -13,6 +13,7 @@ const getters = {};
 const mutations = {
   setRoomsList(state, data) {
     state.list = data;
+    console.log(state.list)
   },
   
   setMessageHistory(state, data) {
@@ -28,6 +29,9 @@ const mutations = {
   },
 
   pushMessageInHistory(state, message) {
+    if (state.history == null) {
+      state.history = {};
+    }
     if (state.history[message.room] == null) {
       state.history[message.room] = [];
     }
@@ -52,6 +56,11 @@ const mutations = {
       state.newMessagesInRooms = {};
     }
     state.newMessagesInRooms[room] = unread;
+  },
+
+  addRoom(state, room) {
+    state.list.push({name: room});
+    state.history[room] = [];
   }
 };
 
@@ -82,6 +91,9 @@ const actions = {
       state.commit('pushMessageInHistory', data);
       if (state.state.current != data.room) {
         state.commit('setNewMessagesInRooms', {room: data.room, unread: true});
+      }
+      if (state.state.list.find(el => el.name == data.room) == undefined) {
+        state.commit('addRoom', data.room);
       }
     };
     api.socket.subscribeMessage(callback);
