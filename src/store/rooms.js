@@ -28,6 +28,13 @@ const mutations = {
     })
   },
 
+  setEmptyMessageHistory(state, room) {
+    if (state.history == null) {
+      state.history = {};
+    }
+    state.history[room] = [];
+  },
+
   pushMessageInHistory(state, message) {
     if (state.history == null) {
       state.history = {};
@@ -82,8 +89,13 @@ const actions = {
       state.commit('clearHystory');
       state.commit('setHistoryLoading', true);
       const resp = await api.rest.rooms.getMessageHistory(name);
-      state.commit('setMessageHistory', resp);
-      state.commit('setHistoryLoading', false);
+      if (resp != undefined) {
+        state.commit('setMessageHistory', resp);
+        state.commit('setHistoryLoading', false);  
+      } else {
+        state.commit('setEmptyMessageHistory', name);
+        state.commit('setHistoryLoading', false);  
+      }
     } catch (err) {
       console.log(err);
     }
@@ -98,6 +110,11 @@ const actions = {
       if (state.state.list.find(el => el.name == data.room) == undefined) {
         state.commit('addRoom', data.room);
       }
+      // // проверка существования комнаты
+      // if (state.list.find(el => el.name == data.room) == undefined) {
+      //   console.log('new room: ', data.room);
+      //   state.commit('addRoom', data.room);
+      // }
     };
     api.socket.subscribeMessage(callback);
   },

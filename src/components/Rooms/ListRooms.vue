@@ -114,6 +114,9 @@ const enableAddingNewRoom = () => {
   }
 }
 
+// TODO вывод сообщения об отсутствии истории в списке сообщений комнаты
+// Динамическое добавление комнаты при получении сообщения по сокету
+
 const disableAddingNewRoom = () => {
   newRoom.value = '';
   isAddingNewRoom.value = false;
