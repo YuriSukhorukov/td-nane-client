@@ -1,10 +1,8 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
   <el-container
-    v-loading="!loaded">
+    v-loading="!loaded"
+  >
     <div class="wrapper">
-      <!-- <Header class="box1" /> -->
       <Rooms class="rooms" />
       <Chat class="chat" />
     </div>
@@ -12,7 +10,6 @@
 </template>
 
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
 import Chat from './components/Chat.vue';
 import Rooms from './components/Rooms.vue';
 
@@ -22,10 +19,6 @@ import {useStore} from 'vuex';
 const store = useStore();
 
 onMounted(async ()=>{
-  // setTimeout(()=>{
-  //   store.dispatch('session/getSettings');
-  //   store.dispatch('rooms/getRoomsList');
-  // }, 2000);
   await store.dispatch('session/getSettings');
   await store.dispatch('rooms/getRoomsList');
 });
@@ -70,27 +63,3 @@ const loaded = computed(() => {
     }
   } */
 </style>
-
-
-// простые компоненты без стилей
-// стили
-// роутинги
-
-// Старт:
-// - Показать лоадер
-// -- Получить насройки сервера
-// -- Получить список комнат
-// - Скрыть лоадер
-// - Ввести имя пользователя
-// - Показать лоадер
-// -- Установить подключение WS
-// - Скрыть лоадер
-// 
-// Вход в комнату:
-// - Скрыть лоадер
-// - Выбрать комнату
-// - Войти в комнату
-// - Показать лоадер
-// -- Получить историю сообщений комнаты
-// - Скрыть лоадер
-// - Написать сообщение
