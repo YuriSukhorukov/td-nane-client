@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper">
-    <button @click="scrollToEndMessageList">Scroll</button>
     <el-container v-loading="isHistoryLoading" class="el-container-messages-list">
       <div v-if="!isHistoryEmpty">
         <div v-for="message in messages">
@@ -42,47 +41,6 @@ watch(messages, async (messages, prevMessages) => {
   nextTick(scrollToEndMessageList);
 }, {deep: true});
 
-
-
-
-
-// const messagesWatch = watchEffect(()=>{
-//   console.log(messages);
-// }, {deep: true});
-
-// const s = reactive({messages: messages})
-
-// const selected = ref(store.state.rooms.history[store.state.rooms.current]);
-
-// watch(selected, (selection, prevSelection) => { 
-//    /* ... */ 
-//    console.log(selection)
-// })
-
-// watchEffect(()=>{
-//   console.log(s.length);
-// //   console.log(messages);
-// }, {deep: true});
-
-
-
-
-
-
-
-// store.watch((state)=>{state.rooms.history}, ()=>{
-//   console.log('!!!')
-// })
-// watch({
-//   messages: (value, oldValue) => {console.log('!!!')}
-// })
-
-// messagesWatch()
-
-// const sss = watch((messages)=>{
-//   console.log(messages);
-// })
-
 </script>
 
 <style scoped>
@@ -93,10 +51,7 @@ watch(messages, async (messages, prevMessages) => {
   width: 100%;
   height: inherit;
   overflow-y: scroll;
-
   margin-left: 1%;
-  /* margin-top: 1%; */
-
   scroll-behavior: smooth;
 }
 </style>

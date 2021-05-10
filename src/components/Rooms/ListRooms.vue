@@ -47,7 +47,7 @@
       <el-menu-item v-if="isAddingNewRoom">
         <el-input
           v-model="newRoom"
-          :maxlength="maxMessageLength"
+          :maxlength="maxRoomTitleLength"
           show-word-limit 
           placeholder="Send a message to" 
           class="input-message"
@@ -114,8 +114,6 @@ const enableAddingNewRoom = () => {
   }
 }
 
-// TODO вывод сообщения об отсутствии истории в списке сообщений комнаты
-
 const disableAddingNewRoom = () => {
   newRoom.value = '';
   isAddingNewRoom.value = false;
@@ -123,6 +121,10 @@ const disableAddingNewRoom = () => {
 
 const addingRoomIcon = computed(() => {
   return isAddingNewRoom.value == true ? "el-icon-check" : "el-icon-plus";
+});
+
+const maxRoomTitleLength = computed(() => {
+  return store.state.session.settings?.max_room_title_length;
 });
 </script>
 

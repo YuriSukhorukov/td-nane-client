@@ -13,7 +13,6 @@
 
 <script setup>
 import HelloWorld from './components/HelloWorld.vue';
-import Header from './components/Header.vue';
 import Chat from './components/Chat.vue';
 import Rooms from './components/Rooms.vue';
 
