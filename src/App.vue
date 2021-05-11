@@ -39,6 +39,7 @@ const loaded = computed(() => {
     padding: 0;
     margin: 0;
     background-color: grey;
+    font-family: Slack-Lato,appleLogo,sans-serif;
   }
 
   .el-container {

@@ -81,13 +81,15 @@
 .button-open-auth-panel {
   border: none;
   background-color: transparent;
-  font-size: 3vmin;
+  /* font-size: 3vmin; */
   padding: 0;
+  font-size: 25px;
 }
 
 .user-name {
-  font-size: 2vmin;
-  padding-left: 0.5em;
+  font-size: 20px;
+  font-weight: 900;
+  padding-left: 1vmin;
   word-break: break-word;
 }
 
@@ -95,12 +97,12 @@
   width: 100%;
   height: 100%;
   display: flex;
-  
+  overflow-y: auto;
   align-items: center;
 }
 
 .first-auth {
-  justify-content: center;
+  padding-left: 2vmin;
 }
 
 .second-auth {
@@ -111,19 +113,32 @@
   background-color: transparent;
   border: none;
   padding: 0;
-  font-size: 2vmin;
+  margin: 0;
+  padding-left: 0.5vmin;
+  padding-right: 0.5vmin;
+  font-size: 1.5vmin;
 }
+
+
 
 .input-auth-username {
   width: 75%;
+  padding-left: 0vmin;
+  resize: none;
 }
 
 :deep() .el-input__count {
-  font-size: 1.2vmin;
+  /* font-size: 1.2vmin; */
 }
 
 :deep() .el-input__inner {
-  font-size: 1.5vmin;
-  height: 3vmin !important;
+  /* font-size: 1.5vmin; */
+  height: 2.5vmin !important;
+  border-radius: 0px;
+}
+
+:deep() .el-input {
+  line-height: 0px;
+  padding-left: 1vmin;
 }
 </style>
