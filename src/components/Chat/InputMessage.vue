@@ -1,11 +1,12 @@
 <template>
-  <div class="wrapper">
+  <div class="container">
     <el-input :maxlength="maxMessageLength" show-word-limit placeholder="Send a message to" v-model="text" class="input-message">
       <template #append>
         <el-button :disabled="isSendingDisabled" @click="sendMessage" icon="el-icon-s-promotion" class="button-send-message"></el-button>
       </template>
     </el-input>
   </div>
+  <div class="container">input</div>
 </template>
 
 <script setup>
@@ -38,11 +39,7 @@ const isSendingDisabled = computed(() => {
 </script>
 
 <style scoped>
-  .wrapper {
-    /* border: 1px solid #000000;
-    border-radius: 4px;
-    border-style: solid;
-    border-width: 1px; */
+  /* .wrapper {
   }
 
   .input-message {
@@ -52,13 +49,17 @@ const isSendingDisabled = computed(() => {
 
   :deep() .el-input__inner {
     height: 4vh !important;
-    /* width: 100%; */
   }
 
   .button-send-message {
     border: none;
     background-color: none;
-  }
+  } */
+
+  /* :deep() .el-input-group {
+    padding-left: 1% !important;
+    padding-right: 1% !important;
+  } */
 </style>
 
 

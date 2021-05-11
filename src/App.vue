@@ -10,6 +10,9 @@
       <Auth class="auth" />
       <Rooms class="rooms" />
     </div>
+    <div class='main-сontainer'>
+      <Chat class="chat" />
+    </div>
     <!-- </el-aside> -->
     <!-- <Chat class="chat" /> -->
     <!-- <div class="wrapper">
@@ -68,6 +71,13 @@ const loaded = computed(() => {
   .rooms {
     width: 100%;
     height: 95%;
+  }
+
+  .main-сontainer {
+    width: 80%;
+    height: 100%;
+
+    background-color: rgb(255, 189, 189);
   }
 
   /* .el-aside {

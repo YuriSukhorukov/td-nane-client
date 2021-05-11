@@ -36,7 +36,7 @@
           v-model="newRoom"
           :maxlength="maxRoomTitleLength"
           show-word-limit 
-          placeholder="Send a message to" 
+          placeholder="Room Title" 
           class="input-message"
         />
       </el-menu-item>

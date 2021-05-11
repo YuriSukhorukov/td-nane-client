@@ -67,14 +67,13 @@ const closeAddingRoomPanel = () => {
   stepAddingRoom.value = FIRST_STEP;
 }
 
-const isRoomExist = (roomTitle) => {
+const checkRoomExist = (roomTitle) => {
   return store.state.rooms.list.find(el => el.name == roomTitle) != undefined;
 }
 
 const addNewRoom = () => {
-  let _isRoomExist = isRoomExist(newRoomTitle.value);
-  console.log('addNewRoom', newRoomTitle.value, _isRoomExist)
-  if (newRoomTitle.title != '' && _isRoomExist == false) {
+  let isRoomExist = checkRoomExist(newRoomTitle.value);
+  if (newRoomTitle.value != '' && isRoomExist == false) {
     store.commit('rooms/addRoom', newRoomTitle.value);
     closeAddingRoomPanel();
   } else {
@@ -153,5 +152,9 @@ const isMessagesInRoomUnreaded = (index) => {
     border: none;
     padding: 0;
     font-size: 2vmin;
+  }
+
+  :deep() .el-menu {
+    overflow-x: scroll;
   }
 </style>

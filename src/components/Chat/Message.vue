@@ -1,5 +1,16 @@
 <template>
-  <div class="wrapper">
+  <div class="container">
+    <div class="header-container">
+      <span class="sender">{{sender}}</span>
+    </div>
+    <div class="main-container">
+      <span class="text">{{text}}</span>
+    </div>
+    <div class="footer-container">
+      <span class="created">{{getFormatedDate(created)}}</span>
+    </div>
+  </div>
+  <!-- <div class="wrapper">
     <div class="header">
       <span class="name">
         {{sender}}
@@ -12,11 +23,17 @@
     <p class="message">
       {{text}}
     </p>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
 import {defineProps, computed} from 'vue';
+
+defineProps({
+  text: String, 
+  created: String,
+  sender: String,
+})
 
 const getFormatedDate = (date) => {
   var ps = new Date(date)  ;
@@ -24,31 +41,55 @@ const getFormatedDate = (date) => {
   return ps;
 }
 
-defineProps({
-  text: String, 
-  created: String,
-  sender: String,
-})
 </script>
 
 <style scoped>
-  .wrapper {
-    /* background-color: rgb(0, 183, 255); */
-    /* border: 1px solid #ebeef5; */
-    /* background-color: red; */
-    /* border-radius: 5px; */
+  .container {
+    width: 100%;
+    height: 10vh;
+    background-color: red;
+    margin-bottom: 10px;
+  }
+
+  .header-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    
+    background-color: rgb(255, 56, 56);
+  }
+
+  .sender {
+    background-color: blue;
+  }
+
+  .main-container {
+    width: 100%;
+    height: 60%;
+    background-color: rgb(255, 160, 160);
+  }
+
+  .footer-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 98, 98);
+  }
+
+  .created {
+    background-color: blue;
+  }
+
+
+  /* .wrapper {
     padding: 10px;
     padding-top: 20px;
-    /* margin-top: 1%; */
-    /* width: 500px; */
-
-    /* border-top: 1px solid #ebeef5; */
-    /* border-bottom: 1px solid #ebeef5; */
   }
   .header {
     clear: both;
     display: flex;
-    /* border-bottom: 1px solid #ebeef5; */
   }
   .space-left {
     margin-left: 1em;
@@ -66,5 +107,5 @@ defineProps({
   .message {
     width: 50vw;
     word-wrap: break-word;
-  }
+  } */
 </style>
