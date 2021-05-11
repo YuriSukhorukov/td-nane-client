@@ -88,7 +88,6 @@ const maxMessageLength = computed(() => {
   font-size: 1.5vmin;
   padding-left: 1.5vmin;
   word-break: break-word;
-  /* background-color: blue; */
 }
 
 .chat-container {

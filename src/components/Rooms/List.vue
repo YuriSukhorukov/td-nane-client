@@ -178,7 +178,12 @@ const isMessagesInRoomUnreaded = (index) => {
     word-break: break-all;
     height: inherit;
     white-space: normal;
+    font-size: 1.25vmin;
     border-bottom: solid 1px #eeeeee;
+  }
+
+  :deep() .el-icon-message-solid {
+    font-size: 1.25vmin;
   }
 
   @media (orientation: portrait) {

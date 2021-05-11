@@ -1,29 +1,15 @@
 <template>
   <div class="container">
     <div class="header-container">
-      <span class="sender">{{sender}}</span>
+      <span class="sender">{{sender}}</span><span class="created">{{getFormatedDate(created)}}</span>
     </div>
     <div class="main-container">
       <span class="text">{{text}}</span>
     </div>
-    <div class="footer-container">
+    <!-- <div class="footer-container">
       <span class="created">{{getFormatedDate(created)}}</span>
-    </div>
+    </div> -->
   </div>
-  <!-- <div class="wrapper">
-    <div class="header">
-      <span class="name">
-        {{sender}}
-      </span>
-      <div class="space-left"/>
-      <span class="time">
-        {{getFormatedDate(created)}}
-      </span>
-    </div>
-    <p class="message">
-      {{text}}
-    </p>
-  </div> -->
 </template>
 
 <script setup>
@@ -37,7 +23,7 @@ defineProps({
 
 const getFormatedDate = (date) => {
   var ps = new Date(date)  ;
-  ps = ps.toDateString() + " " + ps.getHours() + ":"+ ps.getMinutes() + " hrs";
+  ps = ps.toDateString() + " " + ps.getHours() + ":"+ ps.getMinutes();
   return ps;
 }
 
@@ -47,27 +33,52 @@ const getFormatedDate = (date) => {
   .container {
     width: 100%;
     height: 10vh;
-    background-color: red;
-    margin-bottom: 10px;
+    /* background-color: red; */
+    margin-bottom: 1.5vmin;
   }
 
   .header-container {
     width: 100%;
     height: 20%;
-    display: flex;
-    align-items: center;
-    
-    background-color: rgb(255, 56, 56);
+    display: flex;    
+    /* background-color: rgb(255, 56, 56); */
   }
 
   .sender {
-    background-color: blue;
+    /* background-color: blue; */
   }
 
   .main-container {
     width: 100%;
     height: 60%;
-    background-color: rgb(255, 160, 160);
+    /* background-color: rgb(255, 160, 160); */
+  }
+
+  .sender {
+    padding-top: 1.5vmin;
+    padding-left: 1.5vmin;
+    word-break: break-word;
+    font-weight: 900;
+  }
+
+  .text, .created {
+    padding-left: 1.5vmin;
+    word-break: break-word;
+  }
+
+  .text, .sender, .created {
+    font-size: 1.25vmin;
+    display: inline-block;
+  }
+
+  .text {
+    padding-top: 0.5vmin;
+    padding-bottom: 0.5vmin;
+  }
+
+  .created {
+    padding-top: 1.5vmin;
+    color: rgb(153, 153, 153);
   }
 
   .footer-container {
@@ -78,9 +89,9 @@ const getFormatedDate = (date) => {
     background-color: rgb(255, 98, 98);
   }
 
-  .created {
+  /* .created {
     background-color: blue;
-  }
+  } */
 
 
   /* .wrapper {
