@@ -9,17 +9,22 @@
       </div>
     </div>
     <div class="chat-input-message-container">
-      <el-input :maxlength="maxMessageLength" show-word-limit placeholder="Send a message to" v-model="text">
-        <template #append>
-          <el-button :disabled="isSendingDisabled" @click="sendMessage" icon="el-icon-s-promotion" class="button-send-message"></el-button>
-        </template>
-      </el-input>
+      <el-input class="input-message" 
+        :maxlength="maxMessageLength" 
+        show-word-limit 
+        placeholder="Input message" 
+        v-model="text" 
+      />
+      <el-button class="button-send-message"
+        :disabled="isSendingDisabled" 
+        @click="sendMessage" 
+        icon="el-icon-s-promotion" 
+      />
     </div>
   </div>
 </template>
 
 <script setup>
-import InputMessage from './Chat/InputMessage.vue';
 import Message from './Chat/Message.vue';
 
 import {computed, onMounted, watch, nextTick, onUpdated, ref} from 'vue';
@@ -98,50 +103,54 @@ const maxMessageLength = computed(() => {
   background-color: rgb(192, 113, 113);
 }
 
+
+
+
+
+
+
+
+
+
 .chat-input-message-container {
+  background-color: rgb(231, 137, 137);
+
   width: 100%;
   height: 5%;
   display: flex;
+  overflow-y: auto;
   align-items: center;
-  background-color: rgb(231, 137, 137);
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
+.input-message {
+  width: 95%;
+  padding-left: 0vmin;
+  padding-right: 0vmin;
+  resize: none;
+}
 
-
-/* :deep() .el-input__inner {
-  font-size: 1.5vmin;
-  height: 3vmin !important;
-} */
-/* :deep() .el-input__count {
-  font-size: 1.2vmin;
-  height: 3vmin !important;
-} */
-
-/* :deep() .el-input-group {
-  padding-left: 1% !important;
-  padding-right: 1% !important;
-} */
-
-/* :deep() .el-input__suffix {
-  font-size: 1.5vmin;
-  padding-left: 1% !important;
-  padding-right: 1% !important;
+:deep() .el-input__inner {
+  height: 2.5vmin !important;
+  border-radius: 0px;
 }
 
 :deep() .el-input {
-  font-size: 2vmin;
+  line-height: 0px;
 }
 
-:deep() .el-input-group__append {
+.button-send-message {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 0.5vmin;
+  padding-right: 0.5vmin;
   font-size: 1.5vmin;
 }
 
-:deep() .el-button {
+.button-send-message:hover,select {
   background-color: transparent;
 }
-
-:deep() .el-button:hover {
-  background-color: transparent;
-  border-color: transparent;
-} */
 </style>

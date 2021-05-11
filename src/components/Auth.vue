@@ -113,9 +113,9 @@
   /* padding-left: 1.25vmin; */
 }
 
-.second-auth {
+/* .second-auth {
   justify-content: space-between;
-}
+} */
 
 .el-icon-check, .el-icon-close {
   background-color: transparent;
