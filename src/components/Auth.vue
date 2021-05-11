@@ -2,8 +2,8 @@
   <div class="container">
     <div class="auth-header-panel">
       <div v-if="stepAuth==FIRST_STEP" class="first-auth">
-        <el-button @click="openAuthPanel" icon="el-icon-user" class="button-open-auth-panel" />
         <span class="user-name">{{authorizedUsername || 'Log In'}}</span>
+        <el-button @click="openAuthPanel" icon="el-icon-user" class="button-open-auth-panel" />
       </div>
       <div v-else-if="stepAuth==SECOND_STEP" class="second-auth">
         <el-input
@@ -81,14 +81,14 @@
 .button-open-auth-panel {
   border: none;
   background-color: transparent;
-  padding: 0;
   font-size: 2vmin;
+  padding: 0;
+  padding-right: 1.25vmin;
 }
 
 .user-name {
   font-size: 1.5vmin;
-  /* font-weight: 900; */
-  padding-left: 1vmin;
+  padding-left: 1.5vmin;
   word-break: break-word;
 }
 
@@ -98,10 +98,11 @@
   display: flex;
   overflow-y: auto;
   align-items: center;
+  justify-content: space-between;
 }
 
 .first-auth {
-  padding-left: 1.25vmin;
+  /* padding-left: 1.25vmin; */
 }
 
 .second-auth {
@@ -126,12 +127,12 @@
   resize: none;
 }
 
-:deep() .el-input__count {
+/* :deep() .el-input__count { */
   /* font-size: 1.2vmin; */
-}
+/* } */
 
 :deep() .el-input__inner {
-  /* font-size: 1.5vmin; */
+
   height: 2.5vmin !important;
   border-radius: 0px;
 }
