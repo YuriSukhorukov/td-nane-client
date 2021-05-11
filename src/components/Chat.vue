@@ -1,16 +1,4 @@
 <template>
-  <!-- <div class="wrapper">
-    <div class="title">
-      {{room || 'Room'}}
-    </div>
-    <div class="list-container">
-      <MessagesList />
-    </div>
-    <div class="input-container">
-      <InputMessage />
-    </div>
-  </div> -->
-
   <div class="container">
     <div class="room-title-container">
       <span class="room-title">{{room || 'Room'}}</span>
@@ -31,9 +19,7 @@
 </template>
 
 <script setup>
-  // import MessagesList from './Chat/MessagesList.vue';
 import InputMessage from './Chat/InputMessage.vue';
-// import { ElLoading } from 'element-plus';
 import Message from './Chat/Message.vue';
 
 import {computed, onMounted, watch, nextTick, onUpdated, ref} from 'vue';
@@ -89,50 +75,6 @@ const sendMessage = async () => {
 const maxMessageLength = computed(() => {
   return store.state.session.settings?.max_message_length;
 });
-
-
-
-
-// onUpdated(()=>{
-//   // console.log('!!!');
-//   nextTick(scrollToEndMessageList);
-// })
-
-// watch(isHistoryLoading, async (isHistoryLoading, prevIsHistoryLoading) => {
-//   if(isHistoryLoading == false && prevIsHistoryLoading == true) {
-//     console.log('!!!')
-//     nextTick(scrollToEndMessageList);
-//   }
-// })
-
-
-// let options = {
-//   lock: true,
-//   fullscreen: false,
-//   target: document.querySelector('div.chat-container')
-// }
-
-
-// let loadingInstance = ElLoading.service(options);
-// loadingInstance.close();
-// loadingInstance.
-
-// watch(isHistoryLoading, async (isHistoryLoading, prevIsHistoryLoading) => {
-//   if (isHistoryLoading) {
-//     let loadingInstance = ElLoading.service(options);
-//   } else {
-//     loadingInstance.close();
-//   }
-// }, {deep: true});
-
-// onMounted(()=>{
-//   let options = {
-//     lock: true,
-//     fullscreen: false,
-//     target: document.querySelector('div.chat-container')
-//   }
-//   let loadingInstance = ElLoading.service(options);
-// })
 </script>
 
 <style scoped>
@@ -166,8 +108,6 @@ const maxMessageLength = computed(() => {
   height: 5%;
   display: flex;
   align-items: center;
-  /* padding-left: 1%; */
-  /* padding-right: 1%; */
   background-color: rgb(231, 137, 137);
 }
 
@@ -199,7 +139,6 @@ const maxMessageLength = computed(() => {
 
 :deep() .el-input-group__append {
   font-size: 1.5vmin;
-  /* height: 3vmin !important; */
 }
 
 :deep() .el-button {
@@ -211,32 +150,4 @@ const maxMessageLength = computed(() => {
   background-color: transparent;
   border-color: transparent;
 }
-
-
-  /* .wrapper {
-    background-color: #FFF;
-  }
-  .title {
-    height: 5%;
-    background-color: #FFF;
-    box-sizing: border-box;
-    border-bottom: inset 1px #e6e6e6;
-
-    line-height: 70px;
-    padding-left: 14px;
-    font-size: 24px;
-  }
-  .list-container {
-    width: 79%;
-    height: 90vh;
-    position: fixed;
-  }
-  .input-container {
-    background-color: rgb(156, 120, 153);
-    width: 78%;
-    height: 4vh;
-    margin: 1%;
-    position: fixed;
-    bottom: 0;
-  } */
 </style>

@@ -72,6 +72,7 @@
   }
 
   const closeAuthPanel = () => {
+    username.value = '';
     stepAuth.value = FIRST_STEP;
   }
 
@@ -141,8 +142,6 @@
 
 .input-auth-username {
   width: 75%;
-  /* width: 75%; */
-  /* margin-left: 5%; */
 }
 
 :deep() .el-input__count {

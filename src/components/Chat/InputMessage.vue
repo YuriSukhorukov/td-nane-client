@@ -39,27 +39,6 @@ const isSendingDisabled = computed(() => {
 </script>
 
 <style scoped>
-  /* .wrapper {
-  }
-
-  .input-message {
-    box-sizing: inherit;
-    padding: 0;
-  }
-
-  :deep() .el-input__inner {
-    height: 4vh !important;
-  }
-
-  .button-send-message {
-    border: none;
-    background-color: none;
-  } */
-
-  /* :deep() .el-input-group {
-    padding-left: 1% !important;
-    padding-right: 1% !important;
-  } */
 </style>
 
 

@@ -64,6 +64,7 @@ const openAddingRoomPanel = () => {
 }
 
 const closeAddingRoomPanel = () => {
+  newRoomTitle.value = '';
   stepAddingRoom.value = FIRST_STEP;
 }
 
@@ -154,7 +155,19 @@ const isMessagesInRoomUnreaded = (index) => {
     font-size: 2vmin;
   }
 
-  :deep() .el-menu {
-    overflow-x: scroll;
+  
+
+  :deep() .el-menu-item {
+    box-sizing: border-box;
+    word-break: break-all;
+    height: inherit;
+    white-space: normal;
+    border-bottom: solid 1px #eeeeee;
+  }
+
+  @media (orientation: portrait) {
+    :deep() .el-menu {
+      /* overflow-x: scroll; */
+    }
   }
 </style>

@@ -2,10 +2,6 @@
   <el-container
     v-loading="!loaded"
   >
-    <!-- <el-aside 
-      width="100%" 
-      height="100%"
-    > -->
     <div class="side-container">
       <Auth class="auth" />
       <Rooms class="rooms" />
@@ -13,12 +9,6 @@
     <div class='main-сontainer'>
       <Chat class="chat" />
     </div>
-    <!-- </el-aside> -->
-    <!-- <Chat class="chat" /> -->
-    <!-- <div class="wrapper">
-      <Rooms class="rooms" />
-      <Chat class="chat" />
-    </div> -->
   </el-container>
 </template>
 
@@ -79,29 +69,6 @@ const loaded = computed(() => {
 
     background-color: rgb(255, 189, 189);
   }
-
-  /* .el-aside {
-    background-color: rgb(255, 189, 189);
-  } */
-
-/* 
-  .wrapper {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-  } */
-
-  /* .rooms {
-    box-sizing: border-box;
-    border-right: inset 1px #e6e6e6;
-    width: 90%;
-  } */
-/* 
-  .chat {
-    float: right;
-    width: 80%;
-    height: 100vh;
-  } */
 
   /* @media (orientation: landscape) {
     .wrapper {
