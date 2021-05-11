@@ -134,6 +134,7 @@ const isMessagesInRoomUnreaded = (index) => {
 
   .rooms-list-panel {
     height: 95%;
+    overflow-y: auto;
     background-color: rgb(163, 44, 44);
   }
 
