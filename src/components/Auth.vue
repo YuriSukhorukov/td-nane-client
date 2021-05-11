@@ -88,6 +88,7 @@
 .user-name {
   font-size: 2vmin;
   padding-left: 0.5em;
+  word-break: break-word;
 }
 
 .first-auth, .second-auth {
