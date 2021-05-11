@@ -97,7 +97,7 @@ const maxMessageLength = computed(() => {
 .chat-container {
   width: 100%;
   height: 90%;
-  overflow-y: scroll;
+  overflow-y: auto;
   scroll-behavior: smooth;
   background-color: rgb(192, 113, 113);
 }

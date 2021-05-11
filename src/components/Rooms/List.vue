@@ -155,6 +155,10 @@ const isMessagesInRoomUnreaded = (index) => {
     font-size: 2vmin;
   }
 
+  .el-menu-vertical-demo {
+    overflow-y: auto;
+  }
+
   
 
   :deep() .el-menu-item {
