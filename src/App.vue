@@ -62,12 +62,12 @@ const loaded = computed(() => {
 
   .auth {
     width: 100%;
-    height: 10%;
+    height: 5%;
   }
 
   .rooms {
     width: 100%;
-    height: 90%;
+    height: 95%;
   }
 
   /* .el-aside {

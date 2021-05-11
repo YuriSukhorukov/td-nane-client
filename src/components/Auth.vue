@@ -9,6 +9,7 @@
         <el-input
           class="input-auth-username"
           :maxlength="maxUsernameLength" 
+          placeholder="Username" 
           show-word-limit 
           v-model="username" 
           autocomplete="off" 
@@ -17,6 +18,11 @@
           class="el-icon-check"
           type="primary" 
           @click="auth(username)"
+        />
+        <el-button
+          class="el-icon-close"
+          type="primary" 
+          @click="closeAuthPanel"
         />
       </div>
     </div>
@@ -65,6 +71,10 @@
     stepAuth.value = SECOND_STEP;
   }
 
+  const closeAuthPanel = () => {
+    stepAuth.value = FIRST_STEP;
+  }
+
   const auth = async (username) => {
     await store.dispatch('session/connect', username);
     await store.dispatch('rooms/receiveStreamMessages');
@@ -90,7 +100,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -110,21 +120,29 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  
   align-items: center;
 }
 
-.el-icon-check {
-  border: none;
+.first-auth {
+  justify-content: center;
+}
+
+.second-auth {
+  justify-content: space-between;
+}
+
+.el-icon-check, .el-icon-close {
   background-color: transparent;
+  border: none;
   padding: 0;
-  margin-left: 5%;
   font-size: 2vmin;
 }
 
 .input-auth-username {
   width: 75%;
-  margin-left: 5%;
+  /* width: 75%; */
+  /* margin-left: 5%; */
 }
 
 :deep() .el-input__count {
@@ -133,6 +151,6 @@
 
 :deep() .el-input__inner {
   font-size: 1.5vmin;
-  height: 4vmin !important;
+  height: 3vmin !important;
 }
 </style>

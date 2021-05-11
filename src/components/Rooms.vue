@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import ListRooms from './Rooms/ListRooms.vue';
+// import ListRooms from './Rooms/ListRooms.vue';
 
 
 
@@ -25,26 +25,26 @@ import List from './Rooms/List.vue';
 
 
 
-import Auth from './Auth.vue';
+// import Auth from './Auth.vue';
 import {computed, reactive, ref} from 'vue';
 import {useStore} from 'vuex';
 
 const store = useStore();
 
-const drawer = ref(false);
+// const drawer = ref(false);
 
-const openAuth = () => {
-  drawer.value = true;
-}
+// const openAuth = () => {
+//   drawer.value = true;
+// }
 
-const onAuth = () => {
-  console.log('onAuth');
-  drawer.value = false;
-}
-const onClose = () => {
-  console.log('onClose');
-  drawer.value = false;
-}
+// const onAuth = () => {
+//   console.log('onAuth');
+//   drawer.value = false;
+// }
+// const onClose = () => {
+//   console.log('onClose');
+//   drawer.value = false;
+// }
 
 const username = computed(() => {
   return store.state.session?.username;
