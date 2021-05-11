@@ -1,18 +1,5 @@
 <template>
   <div class="wrapper" v-if="isRoomsLoaded">
-    <!-- <el-menu default-active="null" @select="handleSelect" class="el-menu-vertical-demo" :collapse="false">
-      <el-menu-item v-for="(room, index) in list" :index="index">
-        <template #title>
-          <i class="el-icon-message"></i>
-          <span>{{room.name}}</span>
-          <div style="float: right">
-            <i v-if="isMessagesInRoomUnreaded(index)" class="el-icon-message-solid" />
-          </div>
-        </template>
-      </el-menu-item>
-    </el-menu> -->
-
-
     <el-menu default-active="null" @select="handleSelect" class="el-menu-vertical-demo" :collapse="false">
       <div style="
         padding: 25px; 
