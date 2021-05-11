@@ -77,6 +77,9 @@
 .container {
   border-right: solid 1px #e6e6e6;
   border-bottom: solid 1px #e6e6e6;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .auth-header-panel {

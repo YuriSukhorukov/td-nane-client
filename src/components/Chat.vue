@@ -87,6 +87,9 @@ const maxMessageLength = computed(() => {
   display: flex;
   align-items: center;
   border-bottom: solid 1px #e6e6e6;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .room-title {
@@ -100,6 +103,7 @@ const maxMessageLength = computed(() => {
   height: 90%;
   overflow-y: auto;
   scroll-behavior: smooth;
+  box-shadow: inset rgba(149, 157, 165, 0.2) 2px 2px 10px;
 }
 
 .chat-input-message-container {
@@ -111,6 +115,9 @@ const maxMessageLength = computed(() => {
   flex-direction: row;
   justify-content: space-evenly;
   border-top: solid 1px #e6e6e6;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .input-message {
