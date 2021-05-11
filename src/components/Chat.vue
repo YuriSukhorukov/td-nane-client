@@ -67,7 +67,6 @@ const isSendingDisabled = computed(() => {
 });
 
 const sendMessage = async () => {
-  console.log(store.state.rooms.current, text.value);
   await store.dispatch('messages/sendMessage', {room: store.state.rooms.current, text: text.value});
   text.value = '';
 }
@@ -113,21 +112,21 @@ const maxMessageLength = computed(() => {
 
 
 
-:deep() .el-input__inner {
+/* :deep() .el-input__inner {
   font-size: 1.5vmin;
   height: 3vmin !important;
-}
-:deep() .el-input__count {
+} */
+/* :deep() .el-input__count {
   font-size: 1.2vmin;
   height: 3vmin !important;
-}
+} */
 
-:deep() .el-input-group {
+/* :deep() .el-input-group {
   padding-left: 1% !important;
   padding-right: 1% !important;
-}
+} */
 
-:deep() .el-input__suffix {
+/* :deep() .el-input__suffix {
   font-size: 1.5vmin;
   padding-left: 1% !important;
   padding-right: 1% !important;
@@ -142,12 +141,11 @@ const maxMessageLength = computed(() => {
 }
 
 :deep() .el-button {
-  /* padding: 0; */
   background-color: transparent;
 }
 
 :deep() .el-button:hover {
   background-color: transparent;
   border-color: transparent;
-}
+} */
 </style>

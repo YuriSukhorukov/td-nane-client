@@ -27,22 +27,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-  <!-- <el-drawer 
-    :modal="false"
-    size="20%"
-    title="Log In"
-    v-model="drawer"
-    direction="ltr"
-    :before-close="handleClose"
-  >
-    <span>Username</span>
-    <el-input :maxlength="maxUsernameLength" show-word-limit label="dwqewq" v-model="username" autocomplete="off"></el-input>
-    <el-button type="primary" @click="auth(username)">Connect</el-button>
-  </el-drawer> -->
 </template>
 
 <script setup>
@@ -51,16 +35,6 @@
 
   const store = useStore();
 
-  // defineProps({
-  //   drawer: Boolean
-  // });
-
-  // const emit = defineEmit(['auth', 'close']);
-
-  // const handleClose = (done) => {
-  //   done();
-  //   emit('close');
-  // };
   const FIRST_STEP = 1;
   const SECOND_STEP = 2;
 
@@ -80,7 +54,6 @@
     await store.dispatch('session/connect', username);
     await store.dispatch('rooms/receiveStreamMessages');
     stepAuth.value = FIRST_STEP;
-    // emit('auth');
   }
 
   const maxUsernameLength = computed(() => {
