@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div class="new-room-panel">
-      <div v-if="stepAddingRoom==FIRST_STEP" class="adding-room-panes-first">
+      <div v-if="stepAddingRoom==FIRST_STEP" class="adding-room-panel-first">
         <span class="rooms-label">Rooms</span>
         <el-button @click="openAddingRoomPanel" class="el-icon-plus"></el-button>
       </div>
-      <div v-else-if="stepAddingRoom==SECOND_STEP" class="adding-room-panes-second">
+      <div v-else-if="stepAddingRoom==SECOND_STEP" class="adding-room-panel-second">
         <el-input 
           class="input-new-room-title"
           show-word-limit
@@ -107,22 +107,26 @@ const isMessagesInRoomUnreaded = (index) => {
 
   .new-room-panel {
     height: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: rgb(185, 72, 72);
   }
 
-  .adding-room-panes-first, .adding-room-panes-second {
+  .adding-room-panel-first, .adding-room-panel-second {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding-left: 0.5em; */
-    /* padding-right: 0.5em; */
     background-color: rgb(110, 37, 37);
   }
 
   .rooms-label {
     font-size: 1.5vmin;
+    padding-left: 1.5vmin;
+    word-break: break-word;
   }
 
   .el-icon-plus {
@@ -130,6 +134,7 @@ const isMessagesInRoomUnreaded = (index) => {
     background-color: transparent;
     font-size: 2vmin;
     padding: 0;
+    padding-right: 1.25vmin;
   }
 
   .rooms-list-panel {
@@ -140,27 +145,33 @@ const isMessagesInRoomUnreaded = (index) => {
 
   .input-new-room-title {
     width: 75%;
+    padding-left: 0vmin;
+    resize: none;
   }
-  :deep() .el-input__count {
-    font-size: 1.2vmin;
-  }
+
   :deep() .el-input__inner {
-    font-size: 1.5vmin;
-    height: 3vmin !important;
+    height: 2.5vmin !important;
+    border-radius: 0px;
+  }
+
+  :deep() .el-input {
+    line-height: 0px;
+    padding-left: 1vmin;
   }
 
   .el-icon-check, .el-icon-close {
     background-color: transparent;
     border: none;
     padding: 0;
-    font-size: 2vmin;
+    margin: 0;
+    padding-left: 0.5vmin;
+    padding-right: 0.5vmin;
+    font-size: 1.5vmin;
   }
 
   .el-menu-vertical-demo {
     overflow-y: auto;
   }
-
-  
 
   :deep() .el-menu-item {
     box-sizing: border-box;

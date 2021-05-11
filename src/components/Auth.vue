@@ -81,14 +81,13 @@
 .button-open-auth-panel {
   border: none;
   background-color: transparent;
-  /* font-size: 3vmin; */
   padding: 0;
-  font-size: 25px;
+  font-size: 2vmin;
 }
 
 .user-name {
-  font-size: 20px;
-  font-weight: 900;
+  font-size: 1.5vmin;
+  /* font-weight: 900; */
   padding-left: 1vmin;
   word-break: break-word;
 }
@@ -102,7 +101,7 @@
 }
 
 .first-auth {
-  padding-left: 2vmin;
+  padding-left: 1.25vmin;
 }
 
 .second-auth {
