@@ -49,12 +49,6 @@ watch(messages, async (messages, prevMessages) => {
   nextTick(scrollToEndMessageList);
 }, {deep: true});
 
-
-
-
-
-
-
 const text = ref('');
 const session = store.state.session;
 const rooms = store.state.rooms;
@@ -91,7 +85,10 @@ const maxMessageLength = computed(() => {
 }
 
 .room-title {
-  background-color: blue;
+  font-size: 1.5vmin;
+  padding-left: 1.5vmin;
+  word-break: break-word;
+  /* background-color: blue; */
 }
 
 .chat-container {
