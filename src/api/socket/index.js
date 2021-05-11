@@ -23,7 +23,7 @@ export default {
           rej();
         }
       };
-      this.conn.close();
+      this.conn.close(1000);
     })
   },
 

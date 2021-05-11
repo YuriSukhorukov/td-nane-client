@@ -181,14 +181,4 @@ const isMessagesInRoomUnreaded = (index) => {
     font-size: 1.25vmin;
     border-bottom: solid 1px #eeeeee;
   }
-
-  :deep() .el-icon-message-solid {
-    font-size: 1.25vmin;
-  }
-
-  @media (orientation: portrait) {
-    :deep() .el-menu {
-      /* overflow-x: scroll; */
-    }
-  }
 </style>

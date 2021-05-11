@@ -3,7 +3,7 @@
     <div class="auth-header-panel">
       <div v-if="stepAuth==FIRST_STEP" class="first-auth">
         <span class="user-name">{{authorizedUsername || 'Log In'}}</span>
-        <el-button @click="openAuthPanel" icon="el-icon-user" class="button-open-auth-panel" />
+        <el-button v-if="!isConnected" @click="openAuthPanel" icon="el-icon-user" class="button-open-auth-panel" />
       </div>
       <div v-else-if="stepAuth==SECOND_STEP" class="second-auth">
         <el-input
@@ -56,11 +56,19 @@
     stepAuth.value = FIRST_STEP;
   }
 
+  const exit = async () => {
+    await store.dispatch('session/disconnect');
+  }
+
+  const isConnected = computed(() => {
+    return store.state.session.connected;
+  });
+
   const maxUsernameLength = computed(() => {
     return store.state.session.settings?.max_username_length;
   });
 
-  const authorizedUsername  = computed(() => {
+  const authorizedUsername = computed(() => {
     return store.state.session?.username;
   });
 </script>

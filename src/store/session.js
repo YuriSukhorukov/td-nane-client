@@ -40,6 +40,11 @@ const actions = {
     state.commit('setConnected', true);
   },
 
+  async disconnect(state) {
+    await api.socket.disconnect();
+    state.commit('setConnected', false);
+  },
+
   connectionOpened({ commit }) {
     commit('setConnection', true);
   },
