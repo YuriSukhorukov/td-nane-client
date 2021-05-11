@@ -75,7 +75,8 @@
 
 <style scoped>
 .container {
-  background-color: rgb(202, 71, 71);
+  border-right: solid 1px #e6e6e6;
+  border-bottom: solid 1px #e6e6e6;
 }
 
 .auth-header-panel {
@@ -109,14 +110,6 @@
   justify-content: space-between;
 }
 
-.first-auth {
-  /* padding-left: 1.25vmin; */
-}
-
-/* .second-auth {
-  justify-content: space-between;
-} */
-
 .el-icon-check, .el-icon-close {
   background-color: transparent;
   border: none;
@@ -127,17 +120,11 @@
   font-size: 1.5vmin;
 }
 
-
-
 .input-auth-username {
   width: 75%;
   padding-left: 0vmin;
   resize: none;
 }
-
-/* :deep() .el-input__count { */
-  /* font-size: 1.2vmin; */
-/* } */
 
 :deep() .el-input__inner {
 

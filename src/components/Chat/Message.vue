@@ -1,14 +1,15 @@
 <template>
   <div class="container">
     <div class="header-container">
-      <span class="sender">{{sender}}</span><span class="created">{{getFormatedDate(created)}}</span>
+      <span class="sender">{{sender}}</span>
+      <span class="created">{{getFormatedDate(created)}}</span>
     </div>
     <div class="main-container">
       <span class="text">{{text}}</span>
     </div>
-    <!-- <div class="footer-container">
+    <div class="footer-container">
       <span class="created">{{getFormatedDate(created)}}</span>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -22,9 +23,13 @@ defineProps({
 })
 
 const getFormatedDate = (date) => {
-  var ps = new Date(date)  ;
-  ps = ps.toDateString() + " " + ps.getHours() + ":"+ ps.getMinutes();
-  return ps;
+  var ps = new Date(date);
+  const options = { year: "numeric", month: "long", day: "numeric" }
+  const dateString = new Date(ps).toLocaleDateString(undefined, options);
+  const hours = ps.getHours();
+  const minutes = ps.getMinutes() == '0' ? '00' : ps.getMinutes();
+  const dateFormated = `${dateString} ${hours}:${minutes}`;
+  return dateFormated;
 }
 
 </script>
@@ -33,7 +38,6 @@ const getFormatedDate = (date) => {
   .container {
     width: 100%;
     height: 10vh;
-    /* background-color: red; */
     margin-bottom: 1.5vmin;
   }
 
@@ -41,17 +45,11 @@ const getFormatedDate = (date) => {
     width: 100%;
     height: 20%;
     display: flex;    
-    /* background-color: rgb(255, 56, 56); */
-  }
-
-  .sender {
-    /* background-color: blue; */
   }
 
   .main-container {
     width: 100%;
     height: 60%;
-    /* background-color: rgb(255, 160, 160); */
   }
 
   .sender {
@@ -77,8 +75,8 @@ const getFormatedDate = (date) => {
   }
 
   .created {
+    color: rgb(194, 194, 194);
     padding-top: 1.5vmin;
-    color: rgb(153, 153, 153);
   }
 
   .footer-container {
@@ -86,37 +84,5 @@ const getFormatedDate = (date) => {
     height: 20%;
     display: flex;
     align-items: center;
-    background-color: rgb(255, 98, 98);
   }
-
-  /* .created {
-    background-color: blue;
-  } */
-
-
-  /* .wrapper {
-    padding: 10px;
-    padding-top: 20px;
-  }
-  .header {
-    clear: both;
-    display: flex;
-  }
-  .space-left {
-    margin-left: 1em;
-  }
-  .header, .name {
-    color: rgba(var(--sk_primary_foreground,29,28,29),1);
-    line-height: 1.46668;
-    font-size: 1.5em;
-  }
-  .header, time {
-    color: #aaa;
-    line-height: 1.46668;
-    font-size: 1em;
-  }
-  .message {
-    width: 50vw;
-    word-wrap: break-word;
-  } */
 </style>

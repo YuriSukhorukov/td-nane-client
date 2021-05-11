@@ -86,7 +86,7 @@ const maxMessageLength = computed(() => {
   height: 5%;
   display: flex;
   align-items: center;
-  background-color: rgb(156, 70, 70);
+  border-bottom: solid 1px #e6e6e6;
 }
 
 .room-title {
@@ -100,21 +100,9 @@ const maxMessageLength = computed(() => {
   height: 90%;
   overflow-y: auto;
   scroll-behavior: smooth;
-  background-color: rgb(192, 113, 113);
 }
 
-
-
-
-
-
-
-
-
-
 .chat-input-message-container {
-  background-color: rgb(231, 137, 137);
-
   width: 100%;
   height: 5%;
   display: flex;
@@ -122,6 +110,7 @@ const maxMessageLength = computed(() => {
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
+  border-top: solid 1px #e6e6e6;
 }
 
 .input-message {

@@ -38,7 +38,6 @@ const loaded = computed(() => {
     height: 100%;
     padding: 0;
     margin: 0;
-    background-color: grey;
     font-family: Slack-Lato,appleLogo,sans-serif;
   }
 
@@ -67,13 +66,5 @@ const loaded = computed(() => {
   .main-сontainer {
     width: 80%;
     height: 100%;
-
-    background-color: rgb(255, 189, 189);
   }
-
-  /* @media (orientation: landscape) {
-    .wrapper {
-      width: 100%;
-    }
-  } */
 </style>

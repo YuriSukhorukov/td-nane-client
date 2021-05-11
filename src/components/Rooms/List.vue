@@ -102,7 +102,7 @@ const isMessagesInRoomUnreaded = (index) => {
 
 <style scoped>
   .container {
-    background-color: rgb(212, 106, 106);
+    border-right: solid 1px #e6e6e6;
   }
 
   .new-room-panel {
@@ -111,7 +111,6 @@ const isMessagesInRoomUnreaded = (index) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(185, 72, 72);
   }
 
   .adding-room-panel-first, .adding-room-panel-second {
@@ -120,7 +119,6 @@ const isMessagesInRoomUnreaded = (index) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(110, 37, 37);
   }
 
   .rooms-label {
@@ -140,7 +138,6 @@ const isMessagesInRoomUnreaded = (index) => {
   .rooms-list-panel {
     height: 95%;
     overflow-y: auto;
-    background-color: rgb(163, 44, 44);
   }
 
   .input-new-room-title {
@@ -171,6 +168,7 @@ const isMessagesInRoomUnreaded = (index) => {
 
   .el-menu-vertical-demo {
     overflow-y: auto;
+    border-right: none;
   }
 
   :deep() .el-menu-item {
@@ -179,6 +177,5 @@ const isMessagesInRoomUnreaded = (index) => {
     height: inherit;
     white-space: normal;
     font-size: 1.25vmin;
-    border-bottom: solid 1px #eeeeee;
   }
 </style>
