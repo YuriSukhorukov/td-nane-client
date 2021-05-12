@@ -78,7 +78,10 @@ const scrollToEndMessageList = () => {
   let length = document.getElementsByClassName("chat-container")[0].childNodes.length;
   if (length > 1)
     return;
-  let node = document.getElementsByClassName("chat-container")[0].childNodes[length-2].previousSibling;
+  let node = document.getElementsByClassName("chat-container")[0].childNodes[length-2];
+  if (node == undefined)
+    return;
+  let targetNode = node.previousSibling;
   if (node == undefined || node.scrollIntoView == undefined)
     return;
   node.scrollIntoView();

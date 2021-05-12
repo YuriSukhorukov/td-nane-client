@@ -57,7 +57,7 @@ export default {
         this.conn.send(JSON.stringify({"room": room, "text": text, "id": id}));
         this.listeners[id] = res;
       } catch (err) {
-        rej();
+        rej(err.message);
       }
     });
   },
@@ -67,8 +67,8 @@ export default {
       try {
         this.listeners.pong = res;
         this.conn.send(JSON.stringify({"ping": true}));
-      } catch (e) {
-        rej(e);
+      } catch (err) {
+        rej(err.message);
       }
     });
   }
