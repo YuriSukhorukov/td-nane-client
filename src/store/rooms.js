@@ -58,7 +58,6 @@ const mutations = {
   },
 
   setNewMessagesInRooms(state, {room, unread}) {
-    console.log(room, unread, state.current);
     if (state.newMessagesInRooms == null) {
       state.newMessagesInRooms = {};
     }
@@ -110,11 +109,6 @@ const actions = {
       if (state.state.list.find(el => el.name == data.room) == undefined) {
         state.commit('addRoom', data.room);
       }
-      // // проверка существования комнаты
-      // if (state.list.find(el => el.name == data.room) == undefined) {
-      //   console.log('new room: ', data.room);
-      //   state.commit('addRoom', data.room);
-      // }
     };
     api.socket.subscribeMessage(callback);
   },

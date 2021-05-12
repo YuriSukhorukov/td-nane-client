@@ -7,12 +7,16 @@
       </span>
     </div>
     <div class="chat-container" v-loading="isHistoryLoading">
-      <div v-for="message in messages">
+      <div class="info-container" v-if="isHistoryLoading==false && isHistoryEmpty==true">
+        <div class="info-message-history-empty">Message history is empty </div>
+      </div>
+      <div v-else v-for="message in messages">
         <Message :created="message.created" :sender="message.sender.username" :text="message.text" />
       </div>
     </div>
     <div class="chat-input-message-container">
-      <el-input class="input-message" 
+      <el-input class="input-message"
+        @keyup.enter="sendMessage"
         :maxlength="maxMessageLength" 
         show-word-limit 
         placeholder="Input message" 
@@ -35,31 +39,23 @@ import {useStore} from 'vuex';
 
 const store = useStore();
 
-const room = computed(() => {
-  return store.state.rooms.current;
-});
-const messages = computed(() => {
-  return store.state.rooms.history && store.state.rooms.history[store.state.rooms.current] ? store.state.rooms.history[store.state.rooms.current] : null;
-});
-const isHistoryLoading = computed(() => {
-  return store.state.rooms.isHistoryLoading;
-});
-
-const scrollToEndMessageList = async () => {
-  var length = document.getElementsByClassName("chat-container")[0].childNodes.length;
-  var node = document.getElementsByClassName("chat-container")[0].childNodes[length-2].previousSibling;
-  if (node == undefined || node.scrollIntoView == undefined)
-    return;
-  node.scrollIntoView();
-};
-
-watch(messages, async (messages, prevMessages) => {
-  nextTick(scrollToEndMessageList);
-}, {deep: true});
-
 const text = ref('');
 const session = store.state.session;
 const rooms = store.state.rooms;
+
+const room = computed(() => {
+  return store.state.rooms.current;
+});
+
+const messages = computed(() => {
+  return store.state.rooms.history && store.state.rooms.history[store.state.rooms.current] 
+       ? store.state.rooms.history[store.state.rooms.current] 
+       : null;
+});
+
+const isHistoryLoading = computed(() => {
+  return store.state.rooms.isHistoryLoading;
+});
 
 const isSendingDisabled = computed(() => {
   return session.username == null 
@@ -68,14 +64,32 @@ const isSendingDisabled = computed(() => {
       || text.value == '';
 });
 
-const sendMessage = async () => {
-  await store.dispatch('messages/sendMessage', {room: store.state.rooms.current, text: text.value});
-  text.value = '';
-}
-
 const maxMessageLength = computed(() => {
   return store.state.session.settings?.max_message_length;
 });
+
+const isHistoryEmpty = computed(() => {
+  return store.state.rooms.history == null || store.state.rooms.history[store.state.rooms.current] == null || store.state.rooms.history[store.state.rooms.current].length == 0;
+});
+
+const scrollToEndMessageList = () => {
+  let length = document.getElementsByClassName("chat-container")[0].childNodes.length;
+  if (length == 0)
+    return;
+  let node = document.getElementsByClassName("chat-container")[0].childNodes[length-2].previousSibling;
+  if (node == undefined || node.scrollIntoView == undefined)
+    return;
+  node.scrollIntoView();
+};
+
+const sendMessage = async () => {
+  await store.dispatch('messages/sendMessage', {room: store.state.rooms.current, text: text.value});
+  text.value = '';
+};
+
+watch(messages, async (messages, prevMessages) => {
+  nextTick(scrollToEndMessageList);
+}, {deep: true});
 </script>
 
 <style scoped>
@@ -111,6 +125,19 @@ const maxMessageLength = computed(() => {
   overflow-y: auto;
   scroll-behavior: smooth;
   box-shadow: inset rgba(149, 157, 165, 0.2) 2px 2px 10px;
+}
+
+.info-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-message-history-empty {
+  font-size: 1.5vmin;
+  color: rgb(194, 194, 194);;
 }
 
 .chat-input-message-container {
@@ -153,7 +180,7 @@ const maxMessageLength = computed(() => {
   font-size: 1.5vmin;
 }
 
-.button-send-message:hover,select {
+.button-send-message:hover, select {
   background-color: transparent;
 }
 </style>
