@@ -7,9 +7,6 @@
     <div class="main-container">
       <span class="text">{{text}}</span>
     </div>
-    <div class="footer-container">
-      <span class="created">{{getFormatedDate(created)}}</span>
-    </div>
   </div>
 </template>
 

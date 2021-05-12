@@ -67,4 +67,11 @@ const loaded = computed(() => {
     width: 80%;
     height: 100%;
   }
+
+  .el-button {
+    color: rgb(158, 158, 158);
+  }
+  .el-button:hover {
+    color: rgb(190, 190, 190);
+  }
 </style>

@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="room-title-container">
-      <span class="room-title">{{room || 'Room'}}</span>
+      <span class="room-title">
+        <span class="room-icon">#</span> 
+        {{room || 'Room'}}
+      </span>
     </div>
     <div class="chat-container" v-loading="isHistoryLoading">
       <div v-for="message in messages">
@@ -96,6 +99,10 @@ const maxMessageLength = computed(() => {
   font-size: 1.5vmin;
   padding-left: 1.5vmin;
   word-break: break-word;
+}
+
+.room-icon {
+  color: rgb(194, 194, 194)
 }
 
 .chat-container {

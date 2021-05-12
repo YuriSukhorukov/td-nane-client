@@ -27,7 +27,10 @@
       <el-menu default-active="null" @select="handleSelectRoom" class="el-menu-vertical-demo" :collapse="false">
         <el-menu-item v-for="(room, index) in roomsList" :index="index">
           <template #title>
-            <span>{{room.name}}</span>
+            <span>
+              <span class="room-icon"># </span> 
+              {{room.name}}
+            </span>
             <div style="float: right">
               <i v-if="isMessagesInRoomUnreaded(index)" class="el-icon-message-solid" />
             </div>
@@ -130,6 +133,10 @@ const isMessagesInRoomUnreaded = (index) => {
     word-break: break-word;
   }
 
+  .room-icon {
+    color: rgb(194, 194, 194);
+  }
+
   .el-icon-plus {
     border: none;
     background-color: transparent;
@@ -174,11 +181,18 @@ const isMessagesInRoomUnreaded = (index) => {
     border-right: none;
   }
 
+  .el-icon-message-solid {
+    font-size: 1.25vmin;
+    color: rgb(158, 158, 158);
+  }
+
   :deep() .el-menu-item {
     box-sizing: border-box;
     word-break: break-all;
     height: inherit;
     white-space: normal;
     font-size: 1.25vmin;
+    padding-right: 1vmin;
+    padding-left: 1vmin;
   }
 </style>
