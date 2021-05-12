@@ -28,50 +28,51 @@ onMounted(async ()=>{
 });
 
 const loaded = computed(() => {
-  return store.state.session.settings != null && store.state.rooms.list != null;
+  return store.state.session.settings != null 
+      && store.state.rooms.list != null;
 });
 </script>
 
 <style>
-  body {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: Slack-Lato,appleLogo,sans-serif;
-  }
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+}
 
-  .el-container {
-    width: 100vw;
-    height: 100vh;
-  }
+.el-container {
+  width: 100vw;
+  height: 100vh;
+}
 
-  .side-container {
-    width: 20%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+.side-container {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-  .auth {
-    width: 100%;
-    height: 5%;
-  }
+.auth {
+  width: 100%;
+  height: 5%;
+}
 
-  .rooms {
-    width: 100%;
-    height: 95%;
-  }
+.rooms {
+  width: 100%;
+  height: 95%;
+}
 
-  .main-сontainer {
-    width: 80%;
-    height: 100%;
-  }
+.main-сontainer {
+  width: 80%;
+  height: 100%;
+}
 
-  .el-button {
-    color: rgb(158, 158, 158);
-  }
-  .el-button:hover {
-    color: rgb(190, 190, 190);
-  }
+.el-button {
+  color: rgb(158, 158, 158);
+}
+.el-button:hover {
+  color: rgb(190, 190, 190);
+}
 </style>

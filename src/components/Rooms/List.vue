@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div class="new-room-panel">
-      <div v-if="stepAddingRoom==FIRST_STEP" class="adding-room-panel-first">
+      <div v-if="stepAddingRoom == FIRST_STEP" class="adding-room-panel-first">
         <span class="rooms-label">Rooms</span>
-        <el-button @click="openAddingRoomPanel" class="el-icon-plus"></el-button>
+        <el-button class="el-icon-plus" @click="openAddingRoomPanel" />
       </div>
-      <div v-else-if="stepAddingRoom==SECOND_STEP" class="adding-room-panel-second">
+      <div v-else-if="stepAddingRoom == SECOND_STEP" class="adding-room-panel-second">
         <el-input 
           class="input-new-room-title"
           show-word-limit
@@ -24,7 +24,11 @@
       </div>
     </div>
     <div class="rooms-list-panel">
-      <el-menu default-active="null" @select="handleSelectRoom" class="el-menu-vertical-demo" :collapse="false">
+      <el-menu class="el-menu-vertical-demo" 
+        default-active="null" 
+        @select="handleSelectRoom" 
+        :collapse="false"
+      >
         <el-menu-item v-for="(room, index) in roomsList" :index="index">
           <template #title>
             <span>
@@ -51,6 +55,7 @@ const FIRST_STEP = 1;
 const SECOND_STEP = 2;
 
 const stepAddingRoom = ref(FIRST_STEP);
+const newRoomTitle = ref('');
 
 const roomsList = computed(() => {
   return store.state.rooms.list;
@@ -59,8 +64,6 @@ const roomsList = computed(() => {
 const maxRoomTitleLength = computed(() => {
   return store.state.session.settings?.max_room_title_length;
 });
-
-const newRoomTitle = ref('');
 
 const openAddingRoomPanel = () => {
   stepAddingRoom.value = SECOND_STEP;
@@ -80,8 +83,6 @@ const addNewRoom = () => {
   if (newRoomTitle.value != '' && isRoomExist == false) {
     store.commit('rooms/addRoom', newRoomTitle.value);
     closeAddingRoomPanel();
-  } else {
-    console.log('room exist', newRoomTitle.value);
   }
 }
 
@@ -96,7 +97,6 @@ const handleSelectRoom = async (index, indexPath) => {
 const isMessagesInRoomUnreaded = (index) => {
   if (store.state.rooms.list == undefined || store.state.rooms.newMessagesInRooms == undefined)
     return false;
-
   let room = store.state.rooms.list[index].name;
   return store.state.rooms.newMessagesInRooms[room];
 };
@@ -104,95 +104,95 @@ const isMessagesInRoomUnreaded = (index) => {
 </script>
 
 <style scoped>
-  .container {
-    border-right: solid 1px #e6e6e6;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+.container {
+  border-right: solid 1px #e6e6e6;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-  .new-room-panel {
-    height: 5%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.new-room-panel {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .adding-room-panel-first, .adding-room-panel-second {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.adding-room-panel-first, .adding-room-panel-second {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .rooms-label {
-    font-size: 1.5vmin;
-    padding-left: 1.5vmin;
-    word-break: break-word;
-  }
+.rooms-label {
+  font-size: 1.5vmin;
+  padding-left: 1.5vmin;
+  word-break: break-word;
+}
 
-  .room-icon {
-    color: rgb(194, 194, 194);
-  }
+.room-icon {
+  color: rgb(194, 194, 194);
+}
 
-  .el-icon-plus {
-    border: none;
-    background-color: transparent;
-    font-size: 2vmin;
-    padding: 0;
-    padding-right: 1.25vmin;
-  }
+.el-icon-plus {
+  border: none;
+  background-color: transparent;
+  font-size: 2vmin;
+  padding: 0;
+  padding-right: 1.25vmin;
+}
 
-  .rooms-list-panel {
-    height: 95%;
-    overflow-y: auto;
-  }
+.rooms-list-panel {
+  height: 95%;
+  overflow-y: auto;
+}
 
-  .input-new-room-title {
-    width: 75%;
-    padding-left: 0vmin;
-    resize: none;
-  }
+.input-new-room-title {
+  width: 75%;
+  padding-left: 0vmin;
+  resize: none;
+}
 
-  :deep() .el-input__inner {
-    height: 2.5vmin !important;
-    border-radius: 0px;
-  }
+:deep() .el-input__inner {
+  height: 2.5vmin !important;
+  border-radius: 0px;
+}
 
-  :deep() .el-input {
-    line-height: 0px;
-    padding-left: 1vmin;
-  }
+:deep() .el-input {
+  line-height: 0px;
+  padding-left: 1vmin;
+}
 
-  .el-icon-check, .el-icon-close {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    padding-left: 0.5vmin;
-    padding-right: 0.5vmin;
-    font-size: 1.5vmin;
-  }
+.el-icon-check, .el-icon-close {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 0.5vmin;
+  padding-right: 0.5vmin;
+  font-size: 1.5vmin;
+}
 
-  .el-menu-vertical-demo {
-    overflow-y: auto;
-    border-right: none;
-  }
+.el-menu-vertical-demo {
+  overflow-y: auto;
+  border-right: none;
+}
 
-  .el-icon-message-solid {
-    font-size: 1.25vmin;
-    color: rgb(158, 158, 158);
-  }
+.el-icon-message-solid {
+  font-size: 1.25vmin;
+  color: rgb(158, 158, 158);
+}
 
-  :deep() .el-menu-item {
-    box-sizing: border-box;
-    word-break: break-all;
-    height: inherit;
-    white-space: normal;
-    font-size: 1.25vmin;
-    padding-right: 1vmin;
-    padding-left: 1vmin;
-  }
+:deep() .el-menu-item {
+  box-sizing: border-box;
+  word-break: break-all;
+  height: inherit;
+  white-space: normal;
+  font-size: 1.25vmin;
+  padding-right: 1vmin;
+  padding-left: 1vmin;
+}
 </style>

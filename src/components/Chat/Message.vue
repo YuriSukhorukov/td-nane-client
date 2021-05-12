@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import {defineProps, computed} from 'vue';
+import {defineProps} from 'vue';
 
 defineProps({
   text: String, 
@@ -28,58 +28,57 @@ const getFormatedDate = (date) => {
   const dateFormated = `${dateString} ${hours}:${minutes}`;
   return dateFormated;
 }
-
 </script>
 
 <style scoped>
-  .container {
-    width: 100%;
-    height: 10vh;
-    margin-bottom: 1.5vmin;
-  }
+.container {
+  width: 100%;
+  height: 10vh;
+  margin-bottom: 1.5vmin;
+}
 
-  .header-container {
-    width: 100%;
-    height: 20%;
-    display: flex;    
-  }
+.header-container {
+  width: 100%;
+  height: 20%;
+  display: flex;    
+}
 
-  .main-container {
-    width: 100%;
-    height: 60%;
-  }
+.main-container {
+  width: 100%;
+  height: 60%;
+}
 
-  .sender {
-    padding-top: 1.5vmin;
-    padding-left: 1.5vmin;
-    word-break: break-word;
-    font-weight: 900;
-  }
+.sender {
+  padding-top: 1.5vmin;
+  padding-left: 1.5vmin;
+  word-break: break-word;
+  font-weight: 900;
+}
 
-  .text, .created {
-    padding-left: 1.5vmin;
-    word-break: break-word;
-  }
+.text, .created {
+  padding-left: 1.5vmin;
+  word-break: break-word;
+}
 
-  .text, .sender, .created {
-    font-size: 1.25vmin;
-    display: inline-block;
-  }
+.text, .sender, .created {
+  font-size: 1.25vmin;
+  display: inline-block;
+}
 
-  .text {
-    padding-top: 0.5vmin;
-    padding-bottom: 0.5vmin;
-  }
+.text {
+  padding-top: 0.5vmin;
+  padding-bottom: 0.5vmin;
+}
 
-  .created {
-    color: rgb(194, 194, 194);
-    padding-top: 1.5vmin;
-  }
+.created {
+  color: rgb(194, 194, 194);
+  padding-top: 1.5vmin;
+}
 
-  .footer-container {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-  }
+.footer-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
 </style>

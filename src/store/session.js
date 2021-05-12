@@ -7,9 +7,8 @@ const state = {
   username: null,
 };
 
-const getters = {
-  // displayMessages: state => state.chatMessages
-};
+const getters = {};
+
 const mutations = {
   setSettings(state, data) {
     state.settings = data;

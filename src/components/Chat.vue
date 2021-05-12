@@ -34,7 +34,7 @@
 <script setup>
 import Message from './Chat/Message.vue';
 
-import {computed, onMounted, watch, nextTick, onUpdated, ref} from 'vue';
+import {computed, watch, nextTick, ref} from 'vue';
 import {useStore} from 'vuex';
 
 const store = useStore();
@@ -69,12 +69,14 @@ const maxMessageLength = computed(() => {
 });
 
 const isHistoryEmpty = computed(() => {
-  return store.state.rooms.history == null || store.state.rooms.history[store.state.rooms.current] == null || store.state.rooms.history[store.state.rooms.current].length == 0;
+  return store.state.rooms.history == null 
+      || store.state.rooms.history[store.state.rooms.current] == null 
+      || store.state.rooms.history[store.state.rooms.current].length == 0;
 });
 
 const scrollToEndMessageList = () => {
   let length = document.getElementsByClassName("chat-container")[0].childNodes.length;
-  if (length == 0)
+  if (length > 1)
     return;
   let node = document.getElementsByClassName("chat-container")[0].childNodes[length-2].previousSibling;
   if (node == undefined || node.scrollIntoView == undefined)
