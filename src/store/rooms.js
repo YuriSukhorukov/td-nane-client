@@ -79,7 +79,7 @@ const actions = {
       const resp = await api.rest.rooms.getRoomsList();
       state.commit('setRoomsList', resp);
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
     }
   },
 
@@ -96,7 +96,7 @@ const actions = {
         state.commit('setHistoryLoading', false);  
       }
     } catch (err) {
-      console.log(err);
+      console.error(err.message);
     }
   },
 

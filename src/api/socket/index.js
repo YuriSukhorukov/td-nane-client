@@ -45,9 +45,8 @@ export default {
   },
 
   unsubscribeMessage(callback) {
-    if (callback.id != undefined && this.listeners[callback.id] != undefined) {
+    if (callback.id != undefined && this.listeners[callback.id] != undefined)
       delete this.listeners[callback.id];
-    }
   },
 
   async sendMessage({room, text}) {

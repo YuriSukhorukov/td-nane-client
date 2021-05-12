@@ -87,16 +87,18 @@ const addNewRoom = () => {
 }
 
 const handleSelectRoom = async (index, indexPath) => {
-  if (store.state.rooms.list[index] == undefined)
+  if (store.state.rooms.list[index] == undefined) {
     return;
+  }
   await store.dispatch('rooms/getMessageHistory', store.state.rooms.list[index].name);
   await store.commit('rooms/setCurrentRoom', store.state.rooms.list[index].name);
   await store.commit('rooms/setNewMessagesInRooms', {room: store.state.rooms.list[index].name, unread: false});
 }
 
 const isMessagesInRoomUnreaded = (index) => {
-  if (store.state.rooms.list == undefined || store.state.rooms.newMessagesInRooms == undefined)
+  if (store.state.rooms.list == undefined || store.state.rooms.newMessagesInRooms == undefined) {
     return false;
+  }
   let room = store.state.rooms.list[index].name;
   return store.state.rooms.newMessagesInRooms[room];
 };
