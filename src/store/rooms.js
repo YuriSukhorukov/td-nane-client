@@ -13,7 +13,6 @@ const getters = {};
 const mutations = {
   setRoomsList(state, data) {
     state.list = data;
-    console.log(state.list)
   },
   
   setMessageHistory(state, data) {
