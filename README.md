@@ -5,7 +5,14 @@ Install:
 npm i
 ```
 
-Run:
+Run dev:
 ```bash
 npm run dev
+```
+
+Run build:
+```bash
+npm run build
+cd dist
+npx serve
 ```
