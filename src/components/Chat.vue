@@ -84,10 +84,10 @@ const scrollToEndMessageList = () => {
     return;
   }
   let targetNode = node.previousSibling;
-  if (node == undefined || node.scrollIntoView == undefined) {
+  if (targetNode == undefined || targetNode.scrollIntoView == undefined) {
     return;
   }
-  node.scrollIntoView();
+  targetNode.scrollIntoView();
 };
 
 const sendMessage = async () => {
