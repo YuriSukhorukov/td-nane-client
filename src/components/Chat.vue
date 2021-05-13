@@ -76,7 +76,7 @@ const isHistoryEmpty = computed(() => {
 
 const scrollToEndMessageList = () => {
   let length = document.getElementsByClassName("chat-container")[0].childNodes.length;
-  if (length > 1) {
+  if (length == 1) {
     return;
   }
   let node = document.getElementsByClassName("chat-container")[0].childNodes[length-2];

@@ -6,16 +6,14 @@
         <el-button v-if="!isConnected" @click="openAuthPanel" icon="el-icon-user" class="button-open-auth-panel" />
       </div>
       <div v-else-if="stepAuth==SECOND_STEP" class="second-auth">
-        <el-input
-          class="input-auth-username"
+        <el-input class="input-auth-username"
           :maxlength="maxUsernameLength" 
           placeholder="Username" 
           show-word-limit 
           v-model="username" 
           autocomplete="off" 
         />
-        <el-button
-          class="el-icon-check"
+        <el-button class="el-icon-check"
           type="primary" 
           @click="auth(username)"
         />
