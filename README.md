@@ -1,8 +1,8 @@
 # td-nane-client
 
-![Видео]("https://i.gyazo.com/2406133a07b27d0241436e16afa4c99c.mp4"/GIF)
-
 Тот самый клиент для тестового задания.
+
+![Видео]("https://i.gyazo.com/2406133a07b27d0241436e16afa4c99c.mp4"/GIF)
 
 Install:
 ```bash
