@@ -107,7 +107,7 @@ const isMessagesInRoomUnreaded = (index) => {
 
 <style scoped>
 .container {
-  border-right: solid 1px #e6e6e6;
+  border-right: var(--border-grey-solid-1px);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -136,7 +136,7 @@ const isMessagesInRoomUnreaded = (index) => {
 }
 
 .room-icon {
-  color: rgb(194, 194, 194);
+  color: var(--color-grey);
 }
 
 .el-icon-plus {
@@ -185,7 +185,7 @@ const isMessagesInRoomUnreaded = (index) => {
 
 .el-icon-message-solid {
   font-size: 1.25vmin;
-  color: rgb(158, 158, 158);
+  color: var(--color-grey);
 }
 
 :deep() .el-menu-item {

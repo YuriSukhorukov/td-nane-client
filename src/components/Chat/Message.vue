@@ -71,7 +71,7 @@ const getFormatedDate = (date) => {
 }
 
 .created {
-  color: rgb(194, 194, 194);
+  color: var(--color-grey);
   padding-top: 1.5vmin;
 }
 

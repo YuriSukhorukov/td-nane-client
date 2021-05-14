@@ -73,8 +73,8 @@
 
 <style scoped>
 .container {
-  border-right: solid 1px #e6e6e6;
-  border-bottom: solid 1px #e6e6e6;
+  border-right: var(--border-grey-solid-1px);;
+  border-bottom: var(--border-grey-solid-1px);;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -128,7 +128,6 @@
 }
 
 :deep() .el-input__inner {
-
   height: 2.5vmin !important;
   border-radius: 0px;
 }

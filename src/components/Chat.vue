@@ -111,7 +111,7 @@ watch(messages, async (messages, prevMessages) => {
   height: 5%;
   display: flex;
   align-items: center;
-  border-bottom: solid 1px #e6e6e6;
+  border-bottom: var(--border-grey-solid-1px);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -124,7 +124,7 @@ watch(messages, async (messages, prevMessages) => {
 }
 
 .room-icon {
-  color: rgb(194, 194, 194)
+  color: var(--color-grey);
 }
 
 .chat-container {
@@ -145,7 +145,7 @@ watch(messages, async (messages, prevMessages) => {
 
 .info-message-history-empty {
   font-size: 1.5vmin;
-  color: rgb(194, 194, 194);;
+  color: var(--color-grey);
 }
 
 .chat-input-message-container {
@@ -156,7 +156,7 @@ watch(messages, async (messages, prevMessages) => {
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
-  border-top: solid 1px #e6e6e6;
+  border-top: var(--border-grey-solid-1px);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;

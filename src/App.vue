@@ -34,6 +34,11 @@ const loaded = computed(() => {
 </script>
 
 <style>
+:root {
+  --color-grey: rgb(158, 158, 158);
+  --border-grey-solid-1px: solid 1px #e6e6e6; 
+}
+
 body {
   width: 100%;
   height: 100%;
@@ -70,9 +75,9 @@ body {
 }
 
 .el-button {
-  color: rgb(158, 158, 158);
+  color: var(--color-grey);
 }
 .el-button:hover {
-  color: rgb(190, 190, 190);
+  color: var(--color-grey);
 }
 </style>
