@@ -18,3 +18,6 @@ npm run build
 cd dist
 npx serve
 ```
+
+Video:
+![caption](https://i.gyazo.com/2406133a07b27d0241436e16afa4c99c.mp4 / GIF)
